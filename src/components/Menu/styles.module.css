@@ -1,0 +1,21 @@
+.menu {
+    display: none;
+}
+
+@media (min-width: 700px) {
+    .menu {
+        width: 5rem;
+        height: 100%;
+        background: #328de8;
+        display: flex;
+        flex-direction: column;
+        transition: ease-out 0.4s;
+        inset: 0;
+        position: absolute;
+    }
+
+    .menu:hover {
+        width: 15rem;
+        transform: translateX(0%);
+    }
+}
