@@ -9,6 +9,7 @@
         background: #328de8;
         display: flex;
         flex-direction: column;
+        padding: 1rem;
         transition: ease-out 0.4s;
         inset: 0;
         position: absolute;
