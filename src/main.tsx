@@ -10,9 +10,12 @@ import {
 } from 'react-router-dom';
 import Layout from './components/Layout';
 
-const routes = createBrowserRouter(
-    createRoutesFromElements([<Route path="/" element={<Layout />} />])
-);
+const routes = createBrowserRouter([
+    {
+        element: <Layout />,
+        path: '/',
+    },
+]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>

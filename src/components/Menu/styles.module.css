@@ -2,6 +2,18 @@
     display: none;
 }
 
+.item {
+    width: 100%;
+    margin: 2rem auto;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.item span {
+    display: none;
+}
+
 @media (min-width: 700px) {
     .menu {
         width: 5rem;
@@ -18,5 +30,14 @@
     .menu:hover {
         width: 15rem;
         transform: translateX(0%);
+    }
+
+    .name:hover {
+        display: flex;
+        color: aliceblue;
+    }
+
+    .item {
+        display: block;
     }
 }

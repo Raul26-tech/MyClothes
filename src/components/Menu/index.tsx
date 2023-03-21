@@ -1,31 +1,38 @@
 import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import { FaProductHunt } from 'react-icons/fa';
+import { BsFillBagFill } from 'react-icons/bs';
 import styles from './styles.module.css';
 
 interface IItemProps {
-    text: string;
+    text?: string;
     url: string;
     children: ReactNode;
 }
 
-export function Item({ children, text, url }: IItemProps) {
+export function Item({ children, url, text }: IItemProps) {
     return (
-        <div className="w-full h-auto flex flex-col justify-center items-center bg-slate-600">
-            <div className="">{children}</div>
-            {/* <Link to={`${url}`}>{text}</Link> */}
+        <div className={styles.item}>
+            <Link to={`${url}`}>{children}</Link>
+            {text && <span>{text}</span>}
         </div>
     );
 }
 
 export default function Menu() {
     return (
-        <>
-            <div className={styles.menu}>
-                <div className="w-full h-full p-2 flex  justify-center item bg-red-300">
-                    Menu aqui
-                </div>
-            </div>
-        </>
+        <div className={styles.menu}>
+            <Item url="/" text="Produtos">
+                <BsFillBagFill size={25} className="text-white" />
+            </Item>
+            <Item url="/" text="Produtos">
+                <BsFillBagFill size={25} className="text-white" />
+            </Item>
+            <Item url="/" text="Produtos">
+                <BsFillBagFill size={25} className="text-white" />
+            </Item>
+            <Item url="/" text="Produtos">
+                <BsFillBagFill size={25} className="text-white" />
+            </Item>
+        </div>
     );
 }
