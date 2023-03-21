@@ -1,6 +1,7 @@
 import Menu from '../Menu';
 import { BsCart3 } from 'react-icons/bs';
 import { TiUser } from 'react-icons/ti';
+import { ReactNode } from 'react';
 
 export default function Header() {
     return (

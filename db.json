@@ -1,0 +1,28 @@
+{
+    "users": [
+        {
+            "email": "raul.santos@asisto.com.br",
+            "password": "123456"
+        }
+    ],
+    "products": [
+        {
+            "id": 1,
+            "name": "Mouse Gamer Xpto",
+            "price": 250.0,
+            "description": "É muito ergonomico"
+        },
+        {
+            "id": 2,
+            "name": "Placa de video",
+            "price": 3000.0,
+            "description": ""
+        },
+        {
+            "id": 1,
+            "name": "Teclado",
+            "price": 250.0,
+            "description": "É muito ergonomico"
+        }
+    ]
+}
