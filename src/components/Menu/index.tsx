@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import { BsFillBagFill } from 'react-icons/bs';
-import styles from './styles.module.css';
+import { HiX } from 'react-icons/hi';
 
 interface IItemProps {
     text?: string;
@@ -9,30 +8,49 @@ interface IItemProps {
     children: ReactNode;
 }
 
-export function Item({ children, url, text }: IItemProps) {
+export function Item({ children, url }: IItemProps) {
     return (
-        <div className={styles.item}>
-            <Link to={`${url}`}>{children}</Link>
-            {text && <span>{text}</span>}
+        <Link
+            to={`${url}`}
+            className="flex justify-center items-center space-x-3"
+        >
+            {children}
+        </Link>
+    );
+}
+
+interface IHeaderMenuProps {
+    openClose?: () => void;
+}
+
+function HeaderMenu({ openClose }: IHeaderMenuProps) {
+    return (
+        <div className="w-full h-20 flex justify-end items-center px-2 bg-theme-blue-50">
+            <button
+                onClick={openClose}
+                className="w-full flex justify-end items-end p-6"
+            >
+                <HiX className="text-white" size={30} />
+            </button>
         </div>
     );
 }
 
-export default function Menu() {
+interface IMenuProps {
+    isOpen: boolean;
+    openClose?: () => void;
+}
+
+export default function Menu({ isOpen = false, openClose }: IMenuProps) {
     return (
-        <div className={styles.menu}>
-            <Item url="/" text="Produtos">
-                <BsFillBagFill size={25} className="text-white" />
-            </Item>
-            <Item url="/" text="Produtos">
-                <BsFillBagFill size={25} className="text-white" />
-            </Item>
-            <Item url="/" text="Produtos">
-                <BsFillBagFill size={25} className="text-white" />
-            </Item>
-            <Item url="/" text="Produtos">
-                <BsFillBagFill size={25} className="text-white" />
-            </Item>
-        </div>
+        <>
+            <div
+                className={`w-60 h-screen flex flex-col absolute ${
+                    !isOpen ? '-translate-x-full' : undefined
+                } transition inset-0 z-40 duration-300 ease-out bg-theme-blue-50`}
+            >
+                <HeaderMenu openClose={openClose} />
+            </div>
+        </>
     );
 }

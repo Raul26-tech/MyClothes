@@ -1,11 +1,19 @@
-import Menu from '../Menu';
 import { BsCart3 } from 'react-icons/bs';
 import { TiUser } from 'react-icons/ti';
 
-export default function Header() {
+import { HiMenu } from 'react-icons/hi';
+
+interface IHeaderProps {
+    openMenu: () => void;
+}
+
+export default function Header({ openMenu }: IHeaderProps) {
     return (
         <>
-            <header className="w-full h-16 md:h-20 p-3 flex justify-end items-center  fixed">
+            <header className="w-full h-16 md:h-20 p-3 flex justify-end firs items-center fixed shadow-xl">
+                <button className="w-full h-full flex justify-start items-center p-6">
+                    <HiMenu size={30} onClick={openMenu} />
+                </button>
                 <div className="w-full flex justify-end items-center">
                     <div className="h-auto flex justify-end items-center md:p-2 space-x-5">
                         <div className="flex w-[2rem] md:w-12 h-[2rem] md:h-12">
@@ -19,7 +27,6 @@ export default function Header() {
                     </div>
                 </div>
             </header>
-            <Menu />
         </>
     );
 }
