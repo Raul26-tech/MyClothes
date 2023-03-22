@@ -1,9 +1,13 @@
-import { useCallback, useState } from 'react';
+import { ReactNode, useCallback, useState } from 'react';
 import Container from '../Container';
 import Header from '../Header';
 import Menu from '../Menu';
 
-export default function Layout() {
+interface ILayoutProps {
+    children: ReactNode;
+}
+
+export default function Layout({ children }: ILayoutProps) {
     const [isOpen, setIsOpen] = useState(false);
 
     const openClose = useCallback(
@@ -12,11 +16,13 @@ export default function Layout() {
     );
 
     return (
-        <>
-            <Container>
+        <div className="w-screen h-screen relative">
+            <div className="flex flex-row h-full">
                 <Menu isOpen={isOpen} openClose={openClose} />
+                <div className="w-64 h-full flex flex-col flex-1 bg-red-300"></div>
                 <Header openMenu={openClose} />
-            </Container>
-        </>
+                <Container>{children}</Container>
+            </div>
+        </div>
     );
 }
