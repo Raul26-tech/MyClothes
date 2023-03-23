@@ -47,7 +47,7 @@ export default function Menu({ isOpen = false, openClose }: IMenuProps) {
             <div
                 className={`w-60 h-screen flex flex-col absolute ${
                     !isOpen ? '-translate-x-full' : undefined
-                } transition inset-0 z-40 duration-300 ease-out bg-theme-blue-50`}
+                } transition inset-0 z-40 duration-300 ease-out bg-theme-blue-50 shadow-xl`}
             >
                 <HeaderMenu openClose={openClose} />
             </div>
