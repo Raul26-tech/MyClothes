@@ -1,6 +1,5 @@
 import { BsCart3 } from 'react-icons/bs';
 import { TiUser } from 'react-icons/ti';
-
 import { HiMenu } from 'react-icons/hi';
 
 interface IHeaderProps {
@@ -10,7 +9,7 @@ interface IHeaderProps {
 export default function Header({ openMenu }: IHeaderProps) {
     return (
         <>
-            <header className="w-full h-16 md:h-20 p-3 flex justify-end firs items-center fixed shadow-xl">
+            <header className="w-full h-16 md:h-20 p-3 flex justify-end firs items-center shadow-xl">
                 <button className="w-full h-full flex justify-start items-center p-6">
                     <HiMenu size={30} onClick={openMenu} />
                 </button>

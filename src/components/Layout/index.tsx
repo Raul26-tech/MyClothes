@@ -19,9 +19,10 @@ export default function Layout({ children }: ILayoutProps) {
         <div className="w-screen h-screen relative">
             <div className="flex flex-row h-full">
                 <Menu isOpen={isOpen} openClose={openClose} />
-                <div className="w-64 h-full flex flex-col flex-1 bg-red-300"></div>
-                <Header openMenu={openClose} />
-                <Container>{children}</Container>
+                <div className="w-64 h-full flex flex-col flex-1">
+                    <Header openMenu={openClose} />
+                    <Container>{children}</Container>
+                </div>
             </div>
         </div>
     );
