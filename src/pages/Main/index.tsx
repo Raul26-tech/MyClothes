@@ -1,12 +1,12 @@
 import Content from '../../components/Content';
 import Layout from '../../components/Layout';
-import Ofers from '../../components/Ofers';
+import Banner from '../../components/Banner';
 
 export default function Main() {
     return (
         <Layout>
             <Content>
-                <Ofers></Ofers>
+                <Banner />
             </Content>
         </Layout>
     );
