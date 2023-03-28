@@ -1,14 +1,17 @@
 import React, { ButtonHTMLAttributes, ReactNode } from 'react';
-import { Link, LinkProps } from 'react-router-dom';
 
 const COLORS = {
     default:
-        'bg-theme-blue border-2 border-theme-green-50 hover:bg-theme-blue-50-hover',
-    primary: '',
-    secondary: '',
-    danger: '',
-    success: '',
-    warning: '',
+        'bg-theme-blue transition duration-400 border-2 border-theme-green-50 hover:bg-theme-blue-50-hover',
+    primary:
+        'bg-primary transition duration-400 border-2 border-white hover:bg-theme-blue-50',
+    secondary:
+        'bg-secondary transition duration-400 border-2 hover:border-orange-500',
+    danger: 'bg-danger transition duration-400 border-2 hover:border-red-600',
+    success:
+        'bg-success transition duration-400 border-2 hover:border-green-600',
+    warning:
+        'bg-warning transition duration-400 border-2 hover:border-yellow-400',
 };
 
 interface IButtomProps extends ButtonHTMLAttributes<HTMLButtonElement> {

@@ -13,7 +13,9 @@ export default function Banner() {
                     <span className="text-white font-semibold text-center text-xl">
                         Fique por dentro de nossas ofertas e produtos
                     </span>
-                    <ButtonLink url="/products">Saiba mais</ButtonLink>
+                    <ButtonLink url="/products" pattern="warning">
+                        Saiba mais
+                    </ButtonLink>
                 </div>
             </div>
         </>
