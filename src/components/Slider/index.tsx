@@ -1,8 +1,8 @@
-import { ReactNode } from 'react';
+import { ButtonHTMLAttributes, ReactNode, useRef } from 'react';
 import { HiArrowLeft, HiArrowRight } from 'react-icons/hi';
 import Button from '../Buttom';
 
-interface ISliderProps {
+interface ISliderProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode;
     forNext?: () => void;
     toGoBack?: () => void;
@@ -14,18 +14,19 @@ export default function Slider({
     forNext,
     toGoBack,
     addClassName = '',
+    ...rest
 }: ISliderProps) {
     return (
-        <div className={`w-full rounded-md shadow-md p-6 ${addClassName}`}>
+        <div className={`w-full rounded-md shadow-md p-6  ${addClassName}`}>
             <div className="w-full flex justify-between">
                 <Button
-                    onClick={toGoBack}
+                    onClick={forNext}
                     pattern="primary"
                     addClassName="md:w-[5rem]"
                 >
                     <HiArrowLeft className="text-white" />
                 </Button>
-                <div className="w-full flex justify-center items-center overflow-auto">
+                <div className="w-[30rem] flex justify-center items-center overflow-x-auto">
                     {children}
                 </div>
                 <Button
