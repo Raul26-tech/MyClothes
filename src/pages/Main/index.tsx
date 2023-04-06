@@ -47,7 +47,7 @@ export default function Main() {
 
     useEffect(() => {
         api.get(`products`).then((response) => {
-            console.log(response.data, null, 2);
+            console.log('Teste');
         });
     }, []);
 
