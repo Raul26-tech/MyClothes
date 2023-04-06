@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Content from '../../components/Content';
 import Layout from '../../components/Layout';
 import Banner from '../../components/Banner';
@@ -6,6 +6,7 @@ import Slider from '../../components/Slider';
 import image1 from '../../assets/placa.jpg';
 import image2 from '../../assets/processador.jpg';
 import image3 from '../../assets/rgb_hyperx.jpg';
+import { api } from '../../services/api';
 
 export default function Main() {
     const [current, setCurrent] = useState(0);
@@ -43,6 +44,12 @@ export default function Main() {
             : (current as unknown as number) + 1;
         setCurrent(currentValue);
     };
+
+    useEffect(() => {
+        api.get(`products`).then((response) => {
+            console.log(response.data, null, 2);
+        });
+    }, []);
 
     return (
         <Layout>
