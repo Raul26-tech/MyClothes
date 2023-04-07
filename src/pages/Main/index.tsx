@@ -69,7 +69,7 @@ export default function Main() {
                         style={{
                             backgroundImage: `url(${slide[current].url})`,
                         }}
-                        className="w-full h-[20rem] bg-center bg-contain bg-no-repeat rounded-md shadow-2xl transition duration-500"
+                        className="w-full h-[20rem] bg-center bg-contain bg-no-repeat rounded-md shadow-2xl transition duration-700"
                     >
                         <div className="hidden md:w-3/12 md:flex justify-center items-center whitespace-normal text-sm text-slate-700 p-3 hover:text-black">
                             <span>{slide[current].description}</span>
