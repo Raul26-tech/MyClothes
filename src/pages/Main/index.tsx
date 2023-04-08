@@ -9,14 +9,6 @@ import placaComputador from '../../assets/placa.jpg';
 import processador from '../../assets/processador.jpg';
 import memoria from '../../assets/rgb_hyperx.jpg';
 
-interface IProductsOfers {
-    id: string;
-    name: string;
-    price: number;
-    desciption: string;
-    url: string;
-}
-
 export default function Main() {
     const [current, setCurrent] = useState(0);
 
