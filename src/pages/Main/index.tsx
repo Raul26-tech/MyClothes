@@ -1,29 +1,39 @@
 import { useEffect, useState } from 'react';
+import { api } from '../../services/api';
 import Content from '../../components/Content';
 import Layout from '../../components/Layout';
 import Banner from '../../components/Banner';
 import Slider from '../../components/Slider';
-import image1 from '../../assets/placa.jpg';
-import image2 from '../../assets/processador.jpg';
-import image3 from '../../assets/rgb_hyperx.jpg';
-import { api } from '../../services/api';
+
+import placaComputador from '../../assets/placa.jpg';
+import processador from '../../assets/processador.jpg';
+import memoria from '../../assets/rgb_hyperx.jpg';
+
+interface IProductsOfers {
+    id: string;
+    name: string;
+    price: number;
+    desciption: string;
+    url: string;
+}
 
 export default function Main() {
     const [current, setCurrent] = useState(0);
+    const [productsOfers, setProductsOfers] = useState<IProductsOfers[]>([]);
 
-    const slide = [
+    const slideOfers = [
         {
-            url: `${image1}`,
+            url: `${placaComputador}`,
             description:
                 'Lorem ipsum dolor sit amet consectetur, adipisicing elit.  Quaerat veniam consequuntur in',
         },
         {
-            url: `${image2}`,
+            url: `${processador}`,
             description:
                 'Dolorum deserunt quisquam voluptate, consequatur fugiat deleniti recusandae asperiores explicabo mollitia perspiciatis quibusdam iusto nam laboriosam omnis ipsa.',
         },
         {
-            url: `${image3}`,
+            url: `${memoria}`,
             description:
                 'Dolorum deserunt quisquam voluptate, consequatur fugiat deleniti recusandae asperiores explicabo mollitia perspiciatis quibusdam iusto nam laboriosam omnis ipsa',
         },
@@ -32,13 +42,13 @@ export default function Main() {
     const prevSlide = () => {
         const currentIndex = current === 0;
         const currentValue = (currentIndex as unknown as number)
-            ? slide.length - 1
+            ? slideOfers.length - 1
             : (currentIndex as unknown as number) + 1;
         setCurrent(currentValue);
     };
 
     const nextSlide = () => {
-        const currentIndex = current === slide.length - 1;
+        const currentIndex = current === slideOfers.length - 1;
         const currentValue = currentIndex
             ? 0
             : (current as unknown as number) + 1;
@@ -47,7 +57,7 @@ export default function Main() {
 
     useEffect(() => {
         api.get(`products`).then((response) => {
-            console.log('Teste');
+            setProductsOfers(response.data);
         });
     }, []);
 
@@ -67,12 +77,12 @@ export default function Main() {
                 >
                     <div
                         style={{
-                            backgroundImage: `url(${slide[current].url})`,
+                            backgroundImage: `url(${slideOfers[current].url})`,
                         }}
-                        className="w-full h-[20rem] bg-center bg-contain bg-no-repeat rounded-md shadow-2xl transition duration-700"
+                        className="w-full h-[20rem] p-1 bg-center bg-contain bg-no-repeat rounded-md shadow-2xl transition duration-700"
                     >
                         <div className="hidden md:w-3/12 md:flex justify-center items-center whitespace-normal text-sm text-slate-700 p-3 hover:text-black">
-                            <span>{slide[current].description}</span>
+                            <span>{slideOfers[current].description}</span>
                         </div>
                     </div>
                 </Slider>
