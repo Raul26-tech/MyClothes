@@ -19,7 +19,6 @@ interface IProductsOfers {
 
 export default function Main() {
     const [current, setCurrent] = useState(0);
-    const [productsOfers, setProductsOfers] = useState<IProductsOfers[]>([]);
 
     const slideOfers = [
         {
@@ -55,12 +54,6 @@ export default function Main() {
         setCurrent(currentValue);
     };
 
-    useEffect(() => {
-        api.get(`products`).then((response) => {
-            setProductsOfers(response.data);
-        });
-    }, []);
-
     return (
         <Layout>
             <Content>
@@ -71,7 +64,7 @@ export default function Main() {
                     </span>
                 </div>
                 <Slider
-                    addClassName="mt-6"
+                    addClassName="mt-6 p-8"
                     prevSlide={prevSlide}
                     nextSlide={nextSlide}
                 >
