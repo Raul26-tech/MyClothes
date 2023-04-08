@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import { api } from '../../services/api';
+import { useState } from 'react';
 import Content from '../../components/Content';
 import Layout from '../../components/Layout';
 import Banner from '../../components/Banner';
