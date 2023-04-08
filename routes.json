@@ -1,7 +1,5 @@
 {
     "/user": "/user/:id",
     "/products": "/products",
-    "/products/:id": "/products/:id",
-    "/products/smartphones": "products/smartphones",
-    "/products/computers": "products/computers"
+    "/products/:id": "/products/:id"
 }

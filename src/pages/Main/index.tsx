@@ -66,6 +66,7 @@ export default function Main() {
                 </div>
             </Slider>
             <Categories />
+            Teste
         </>
     );
 }
