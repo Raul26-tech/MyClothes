@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, ReactNode, useState } from 'react';
+import { ButtonHTMLAttributes, ReactNode } from 'react';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 import Button from '../Buttom';
 
@@ -18,7 +18,7 @@ export default function Slider({
 }: ISliderProps) {
     return (
         <div
-            className={`w-full md:max-w-[1400px] lg:m-w-[1600px] h-auto m-auto p-6 relative rounded-md shadow-xl bg-white group ${addClassName}`}
+            className={`w-full md:max-w-[1400px] lg:m-w-[1600px] h-auto m-auto p-6 relative rounded-md shadow-2xl group ${addClassName}`}
         >
             <div className="p-6">{children}</div>
 

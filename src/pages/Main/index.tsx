@@ -2,9 +2,9 @@ import { useState } from 'react';
 import Banner from '../../components/Banner';
 import Slider from '../../components/Slider';
 
-import placaComputador from '../../assets/placa.jpg';
-import processador from '../../assets/processador.jpg';
-import memoria from '../../assets/rgb_hyperx.jpg';
+import placaComputador from '../../assets/placa.png';
+import processador from '../../assets/processador.png';
+import memoria from '../../assets/rgb_hyperx.png';
 import Categories from '../../components/Categories';
 
 export default function Main() {
@@ -61,7 +61,7 @@ export default function Main() {
                     style={{
                         backgroundImage: `url(${slideOfers[current].url})`,
                     }}
-                    className="w-full h-[20rem] p-1 bg-center bg-contain bg-no-repeat rounded-md shadow-2xl transition duration-700"
+                    className="w-full h-[20rem] p-1 bg-center bg-contain bg-no-repeat rounded-md transition duration-700"
                 >
                     <div className="hidden md:w-3/12 md:flex justify-center items-center whitespace-normal text-sm text-slate-700 p-3 hover:text-black">
                         <span>{slideOfers[current].description}</span>
