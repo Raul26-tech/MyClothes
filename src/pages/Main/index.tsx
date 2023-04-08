@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import Content from '../../components/Content';
-import Layout from '../../components/Layout';
 import Banner from '../../components/Banner';
 import Slider from '../../components/Slider';
 
@@ -47,32 +45,30 @@ export default function Main() {
     };
 
     return (
-        <Layout>
-            <Content>
-                <Banner />
-                <div className="w-full flex justify-center items-center p-6">
-                    <span className="text-lg text-slate-800 font-bold md:text-3xl">
-                        Ofertas da semana
-                    </span>
-                </div>
-                <Slider
-                    addClassName="mt-6 p-8"
-                    prevSlide={prevSlide}
-                    nextSlide={nextSlide}
+        <>
+            <Banner />
+            <div className="w-full flex justify-center items-center p-6">
+                <span className="text-lg text-slate-800 font-bold md:text-3xl">
+                    Ofertas da semana
+                </span>
+            </div>
+            <Slider
+                addClassName="mt-6 p-8"
+                prevSlide={prevSlide}
+                nextSlide={nextSlide}
+            >
+                <div
+                    style={{
+                        backgroundImage: `url(${slideOfers[current].url})`,
+                    }}
+                    className="w-full h-[20rem] p-1 bg-center bg-contain bg-no-repeat rounded-md shadow-2xl transition duration-700"
                 >
-                    <div
-                        style={{
-                            backgroundImage: `url(${slideOfers[current].url})`,
-                        }}
-                        className="w-full h-[20rem] p-1 bg-center bg-contain bg-no-repeat rounded-md shadow-2xl transition duration-700"
-                    >
-                        <div className="hidden md:w-3/12 md:flex justify-center items-center whitespace-normal text-sm text-slate-700 p-3 hover:text-black">
-                            <span>{slideOfers[current].description}</span>
-                        </div>
+                    <div className="hidden md:w-3/12 md:flex justify-center items-center whitespace-normal text-sm text-slate-700 p-3 hover:text-black">
+                        <span>{slideOfers[current].description}</span>
                     </div>
-                </Slider>
-                <Categories />
-            </Content>
-        </Layout>
+                </div>
+            </Slider>
+            <Categories />
+        </>
     );
 }
