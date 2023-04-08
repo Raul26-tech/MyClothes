@@ -6,6 +6,7 @@ import placaComputador from '../../assets/placa.png';
 import processador from '../../assets/processador.png';
 import memoria from '../../assets/rgb_hyperx.png';
 import Categories from '../../components/Categories';
+import Titles from '../../components/Titles';
 
 export default function Main() {
     const [current, setCurrent] = useState(0);
@@ -47,11 +48,7 @@ export default function Main() {
     return (
         <>
             <Banner />
-            <div className="w-full flex justify-center items-center p-6">
-                <span className="text-lg text-slate-800 font-bold md:text-3xl">
-                    Ofertas da semana
-                </span>
-            </div>
+            <Titles>Ofertas da semana</Titles>
             <Slider
                 addClassName="mt-6 p-8"
                 prevSlide={prevSlide}
