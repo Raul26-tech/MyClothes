@@ -7,7 +7,7 @@
         "dev": "vite",
         "build": "tsc && vite build",
         "preview": "vite preview",
-        "server": "json-server db.json -W --port 3333"
+        "server": "json-server --watch rest.json --routes routes.json --port 3333 --host localhost"
     },
     "dependencies": {
         "@types/axios": "^0.14.0",

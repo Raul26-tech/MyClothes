@@ -7,6 +7,7 @@ import Slider from '../../components/Slider';
 import placaComputador from '../../assets/placa.jpg';
 import processador from '../../assets/processador.jpg';
 import memoria from '../../assets/rgb_hyperx.jpg';
+import Categories from '../../components/Categories';
 
 export default function Main() {
     const [current, setCurrent] = useState(0);
@@ -70,6 +71,7 @@ export default function Main() {
                         </div>
                     </div>
                 </Slider>
+                <Categories />
             </Content>
         </Layout>
     );

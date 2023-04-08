@@ -1,10 +1,8 @@
 {
-    "users": [
-        {
-            "email": "raul.santos@asisto.com.br",
-            "password": "123456"
-        }
-    ],
+    "login": {
+        "email": "raul.santos@asisto.com.br",
+        "password": "123456"
+    },
     "products": [
         {
             "id": 1,
