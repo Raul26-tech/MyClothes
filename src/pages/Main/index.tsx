@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Banner from '../../components/Banner';
 import Slider from '../../components/Slider';
-
 import placaComputador from '../../assets/placa.png';
 import processador from '../../assets/processador.png';
 import memoria from '../../assets/rgb_hyperx.png';
