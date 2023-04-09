@@ -7,6 +7,10 @@ import processador from '../../assets/processador.png';
 import memoria from '../../assets/rgb_hyperx.png';
 import Categories from '../../components/Categories';
 import Titles from '../../components/Titles';
+import { ButtonLink } from '../../components/Buttom';
+import { Link } from 'react-router-dom';
+import { BsInstagram } from 'react-icons/bs';
+import { CiFacebook, CiTwitter } from 'react-icons/ci';
 
 export default function Main() {
     const [current, setCurrent] = useState(0);
@@ -66,7 +70,30 @@ export default function Main() {
                 </div>
             </Slider>
             <Categories />
-            Teste
+            <div className="w-full md:h-20 p-6 flex justify-center items-center mt-3 text-white">
+                <ButtonLink url="/products" pattern="primary">
+                    Saiba mais
+                </ButtonLink>
+            </div>
+            <section className="w-full">
+                <Titles>Onde nos encontrar ?</Titles>
+                <div className="w-full flex text-center md:justify-start items-center p-3">
+                    <span className="text-base font-montserrat">
+                        Fique por dentro de nossas redes sociais
+                    </span>
+                </div>
+                <div className="w-full flex justify-center items-center p-3 space-x-8">
+                    <Link to="/">
+                        <CiFacebook size={40} className="text-theme-blue-50" />
+                    </Link>
+                    <Link to="/">
+                        <BsInstagram size={30} className="text-theme-blue-50" />
+                    </Link>
+                    <Link to="/">
+                        <CiTwitter size={40} className="text-theme-blue-50" />
+                    </Link>
+                </div>
+            </section>
         </>
     );
 }
