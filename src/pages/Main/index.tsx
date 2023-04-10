@@ -10,6 +10,7 @@ import { ButtonLink } from '../../components/Buttom';
 import { Link } from 'react-router-dom';
 import { BsInstagram } from 'react-icons/bs';
 import { CiFacebook, CiTwitter } from 'react-icons/ci';
+import Footer from '../../components/Footer';
 
 export default function Main() {
     const [current, setCurrent] = useState(0);
@@ -93,6 +94,9 @@ export default function Main() {
                     </Link>
                 </div>
             </section>
+            <Footer addClassName="border-2 border-white border-t-theme-blue-50">
+                &copy; 2023 | Todos os direitos são reservados - Raul Santos
+            </Footer>
         </>
     );
 }
