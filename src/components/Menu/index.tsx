@@ -1,6 +1,9 @@
 import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { HiX } from 'react-icons/hi';
+import { BsCart3 } from 'react-icons/bs';
+import { TbCategory } from 'react-icons/tb';
+import { BiUser } from 'react-icons/bi';
 
 interface IItemProps {
     text?: string;
@@ -25,14 +28,44 @@ interface IHeaderMenuProps {
 
 function HeaderMenu({ openClose }: IHeaderMenuProps) {
     return (
-        <div className="w-full h-20 flex justify-end items-center px-2 bg-theme-blue-50">
-            <button
-                onClick={openClose}
-                className="w-full flex justify-end items-end p-6"
-            >
-                <HiX className="text-white" size={30} />
-            </button>
-        </div>
+        <>
+            <div className="w-full h-20 flex justify-end items-center px-2 bg-theme-blue-50">
+                <button
+                    onClick={openClose}
+                    className="w-full flex justify-end items-end p-6"
+                >
+                    <HiX className="text-white" size={30} />
+                </button>
+            </div>
+            <nav className="w-full h-full flex flex-col items-center">
+                <ul className="w-full h-full flex flex-col justify-start items-start space-y-5 p-10 text-white text-lg">
+                    <li className="w-full">
+                        <Link to="/products">
+                            <div className="w-full flex justify-between items-center space-x-5">
+                                <span>Produtos</span>
+                                <BsCart3 size={25} />
+                            </div>
+                        </Link>
+                    </li>
+                    <li className="w-full">
+                        <Link to="/">
+                            <div className="w-full flex justify-between items-center space-x-5">
+                                <span>Categorias</span>
+                                <TbCategory size={25} />
+                            </div>
+                        </Link>
+                    </li>
+                    <li className="w-full">
+                        <Link to="/">
+                            <div className="w-full flex justify-between items-center space-x-5">
+                                <span>Meu perfil</span>
+                                <BiUser size={25} />
+                            </div>
+                        </Link>
+                    </li>
+                </ul>
+            </nav>
+        </>
     );
 }
 
