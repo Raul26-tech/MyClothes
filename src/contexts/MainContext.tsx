@@ -1,6 +1,4 @@
 import { ReactNode, createContext } from 'react';
-import Layout from '../components/Layout';
-import Content from '../components/Content';
 
 interface IUser {
     name: string;
@@ -20,11 +18,5 @@ interface IMainProviderProps {
 }
 
 export function MainProvider({ children }: IMainProviderProps) {
-    return (
-        <MainContext.Provider value={{}}>
-            <Layout>
-                <Content>{children}</Content>
-            </Layout>
-        </MainContext.Provider>
-    );
+    return <MainContext.Provider value={{}}>{children}</MainContext.Provider>;
 }

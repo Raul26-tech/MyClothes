@@ -4,11 +4,13 @@ import Routes from './routes';
 
 function App() {
     return (
-        <BrowserRouter>
-            <MainProvider>
-                <Routes />
-            </MainProvider>
-        </BrowserRouter>
+        <>
+            <BrowserRouter>
+                <MainProvider>
+                    <Routes />
+                </MainProvider>
+            </BrowserRouter>
+        </>
     );
 }
 

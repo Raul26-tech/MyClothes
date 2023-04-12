@@ -1,6 +1,10 @@
+import { useContext } from 'react';
 import Titles from '../../components/Titles';
+import { MainContext } from '../../contexts/MainContext';
 
 export default function Login() {
+    const { signIn } = useContext(MainContext);
+
     return (
         <>
             <div className="w-screen h-screen p-20">
