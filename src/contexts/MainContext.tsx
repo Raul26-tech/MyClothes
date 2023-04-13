@@ -1,4 +1,5 @@
-import { ReactNode, createContext } from 'react';
+import { ReactNode, createContext, useCallback, useMemo } from 'react';
+import { api } from '../services/api';
 
 interface IUser {
     name: string;
@@ -7,11 +8,11 @@ interface IUser {
 
 interface IMainContext {
     user?: IUser;
-    signIn?: (email: string, password: string) => void;
-    signOut?: () => void;
+    signIn?: (email: string, password: string) => Promise<void>;
+    signOut?: () => Promise<void>;
 }
 
-export const MainContext = createContext({} as IMainContext);
+export const MainContext = createContext<IMainContext>({} as IMainContext);
 
 interface IMainProviderProps {
     children: ReactNode;
