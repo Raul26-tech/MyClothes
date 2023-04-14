@@ -3,7 +3,7 @@ import { Input } from '../../components/Input';
 import { Link } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import Button from '../../components/Buttom';
-import { useAuth } from '../../contexts/useAuth';
+import { useAuth } from '../../hooks/useAuth';
 
 interface IFormProps {
     email: string;
