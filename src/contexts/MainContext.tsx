@@ -1,5 +1,6 @@
 import { ReactNode, createContext, useCallback, useMemo } from 'react';
 import { api } from '../services/api';
+import { useNavigate } from 'react-router-dom';
 
 interface IUser {
     name: string;
@@ -8,7 +9,7 @@ interface IUser {
 
 interface IMainContext {
     user?: IUser;
-    signIn?: (email: string, password: string) => Promise<void>;
+    signIn: (email: string, password: string) => Promise<void>;
     signOut?: () => Promise<void>;
 }
 
@@ -19,5 +20,29 @@ interface IMainProviderProps {
 }
 
 export function MainProvider({ children }: IMainProviderProps) {
-    return <MainContext.Provider value={{}}>{children}</MainContext.Provider>;
+    const navigate = useNavigate();
+
+    const signIn = useCallback(async (email: string, password: string) => {
+        try {
+            const response = await api.post<IUser>('login', {
+                email,
+                password,
+            });
+            console.log(response.data);
+            navigate('/');
+        } catch (error) {
+            console.log(error);
+        }
+    }, []);
+
+    const values = useMemo(
+        () => ({
+            signIn,
+        }),
+        []
+    );
+
+    return (
+        <MainContext.Provider value={values}>{children}</MainContext.Provider>
+    );
 }

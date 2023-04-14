@@ -1,10 +1,9 @@
-import { useContext } from 'react';
 import Titles from '../../components/Titles';
-import { MainContext } from '../../contexts/MainContext';
 import { Input } from '../../components/Input';
 import { Link } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import Button from '../../components/Buttom';
+import { useAuth } from '../../contexts/useAuth';
 
 interface IFormProps {
     email: string;
@@ -12,14 +11,21 @@ interface IFormProps {
 }
 
 export default function Login() {
-    const { signIn } = useContext(MainContext);
-
     const { register, handleSubmit, formState } = useForm<IFormProps>({
         defaultValues: {
             email: '',
             password: '',
         },
     });
+
+    const { signIn } = useAuth();
+
+    const handleSignIn: SubmitHandler<IFormProps> = async ({
+        email,
+        password,
+    }) => {
+        signIn(email, password);
+    };
 
     return (
         <>
@@ -33,25 +39,34 @@ export default function Login() {
                                 Acesse sua conta
                             </span>
                             <div className="w-full h-full flex flex-col p-3 space-y-2  items-center">
-                                <form className="w-full">
+                                <form
+                                    className="w-full"
+                                    onSubmit={handleSubmit(handleSignIn)}
+                                >
                                     <Input
                                         label="E-mail"
-                                        {...register('email')}
+                                        {...register('email', {
+                                            required: true,
+                                        })}
                                         error={formState.errors.email}
                                     />
                                     <Input
                                         label="Senha"
-                                        {...register('password')}
+                                        {...register('password', {
+                                            required: true,
+                                        })}
+                                        type="password"
+                                        autoComplete="off"
                                         error={formState.errors.password}
                                     />
+                                    <Button
+                                        pattern="primary"
+                                        type="submit"
+                                        addClassName="text-white md:w-full"
+                                    >
+                                        Entrar
+                                    </Button>
                                 </form>
-                                <Button
-                                    pattern="primary"
-                                    type="submit"
-                                    addClassName="text-white md:w-full"
-                                >
-                                    Entrar
-                                </Button>
                                 <div className="w-full flex justify-end items-center">
                                     <Link to="/" className="text-xs">
                                         Você ainda não possui conta ?{' '}
