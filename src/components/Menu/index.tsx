@@ -70,8 +70,12 @@ function HeaderMenu({ openClose }: IHeaderMenuProps) {
                 </nav>
                 <div className="w-full h-20 p-3 flex justify-center items-center">
                     <Button addClassName="w-20 text-white space-x-1 p-2 border-0">
-                        <Link to="/login">Sair</Link>
-                        <VscSignOut size={30} />
+                        <Link to="/login" className="flex space-x-2">
+                            <span>Sair</span>
+                            <span>
+                                <VscSignOut size={20} />
+                            </span>
+                        </Link>
                     </Button>
                 </div>
             </div>

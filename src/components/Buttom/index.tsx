@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, ReactNode } from 'react';
+import { ButtonHTMLAttributes, ReactNode } from 'react';
 
 const COLORS = {
     default:
@@ -30,7 +30,7 @@ export default function Button({
 }: IButtomProps) {
     return (
         <button
-            className={`w-auto h-12 flex justify-center items-center p-3 rounded-md cursor-pointer ${addClassName} ${COLORS[pattern]}`}
+            className={`w-auto flex justify-center items-center p-3 rounded-md cursor-pointer ${addClassName} ${COLORS[pattern]}`}
             {...rest}
         >
             {children}
@@ -55,7 +55,7 @@ interface IButtonLink {
 export function ButtonLink({
     children,
     pattern = 'default',
-    className = `w-auto h-12 flex justify-center items-center p-3 rounded-md cursor-pointer ${COLORS[pattern]}`,
+    className = `w-auto flex justify-center items-center p-3 rounded-md cursor-pointer ${COLORS[pattern]}`,
     addClassName,
     url = '',
 }: IButtonLink) {
