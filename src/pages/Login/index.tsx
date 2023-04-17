@@ -1,3 +1,5 @@
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 import Titles from '../../components/Titles';
 import { Input } from '../../components/Input';
 import { Link } from 'react-router-dom';
@@ -5,20 +7,28 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import Button from '../../components/Buttom';
 import { useAuth } from '../../hooks/useAuth';
 
+const validations = yup.object({
+    email: yup.string().required('E-mail é obrigatório'),
+    password: yup
+        .string()
+        .min(6, 'Minímo 6 caracteres')
+        .required('Senha é obrigatório'),
+});
+
 interface IFormProps {
     email: string;
     password: string;
 }
 
 export default function Login() {
+    const { signIn } = useAuth();
     const { register, handleSubmit, formState } = useForm<IFormProps>({
+        resolver: yupResolver(validations),
         defaultValues: {
             email: '',
             password: '',
         },
     });
-
-    const { signIn } = useAuth();
 
     const handleSignIn: SubmitHandler<IFormProps> = async ({
         email,
@@ -65,8 +75,8 @@ export default function Login() {
                                 Entrar
                             </Button>
                             <div className="w-full p-3 flex justify-end items-center">
-                                <Link to="/" className="text-xs">
-                                    Você ainda não possui conta ?{''}
+                                <Link to="/register" className="text-xs">
+                                    Você ainda não possui conta ? {''}
                                     <strong className="text-theme-blue-50 underline">
                                         Então criei uma!
                                     </strong>
