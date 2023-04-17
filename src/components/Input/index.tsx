@@ -22,7 +22,7 @@ const InputBase: ForwardRefRenderFunction<HTMLInputElement, IInputProps> = (
         labelClassName = 'block text-sm text-slate-600 mb-1 font-normal font-roboto',
         className = `
         min-w-full
-        p-3
+        p-2
         outline-none
         text-slate-600
         bg-white
@@ -37,7 +37,7 @@ const InputBase: ForwardRefRenderFunction<HTMLInputElement, IInputProps> = (
         type = 'text',
         label,
         disabled,
-        disabledInput = disabled ? 'bg-slate-200' : '',
+        disabledInput = disabled ? 'bg-slate-300' : '',
         onBlur,
         onFocus,
         ...rest

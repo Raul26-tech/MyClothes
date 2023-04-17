@@ -40,15 +40,15 @@ export default function Login() {
     return (
         <div className="w-screen h-screen p-20">
             <div className="w-full h-full flex rounded-xl shadow-2xl">
-                <div className="w-full h-full md:bg-[url('../assets/e-commerce-technology.gif')] bg-no-repeat bg-cover bg-center rounded-l-xl opacity-95" />
-                <div className="w-3/4 flex flex-col p-6 ">
+                <div className="hidden md:block w-full h-full md:bg-[url('../assets/e-commerce-technology.gif')] bg-no-repeat bg-cover bg-center rounded-l-xl opacity-95" />
+                <div className="w-3/4 flex flex-col justify-center items-center p-6 ">
                     <Titles>MyStore</Titles>
                     <div className="w-full h-full flex flex-col justify-center items-center">
                         <span className="font-montserra font-semibold text-slate-600">
                             Acesse sua conta
                         </span>
                         <form
-                            className="w-full h-full flex flex-col p-3 space-y-2  items-center"
+                            className="w-full h-full flex flex-col p-3 space-y-2 justify-center items-center"
                             onSubmit={handleSubmit(handleSignIn)}
                         >
                             <Input
@@ -74,7 +74,7 @@ export default function Login() {
                             >
                                 Entrar
                             </Button>
-                            <div className="w-full p-3 flex justify-end items-center">
+                            <div className="w-full p-3 flex justify-center md:justify-end items-center">
                                 <Link to="/register" className="text-xs">
                                     Você ainda não possui conta ? {''}
                                     <strong className="text-theme-blue-50 underline">
