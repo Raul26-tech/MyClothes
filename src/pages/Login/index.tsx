@@ -40,7 +40,7 @@ export default function Login() {
     return (
         <div className="w-screen h-screen p-20">
             <div className="w-full h-full flex rounded-xl shadow-2xl">
-                <div className="hidden md:block w-full h-full md:bg-[url('../assets/e-commerce-technology.gif')] bg-no-repeat bg-cover bg-center rounded-l-xl opacity-95" />
+                <div className="hidden md:block w-3/4 h-full md:bg-[url('../assets/e-commerce-technology.gif')] bg-no-repeat bg-cover bg-center rounded-l-xl opacity-95" />
                 <div className="w-3/4 flex flex-col justify-center items-center p-6 ">
                     <Titles>MyStore</Titles>
                     <div className="w-full h-full flex flex-col justify-center items-center">

@@ -1,44 +1,146 @@
 {
-    "login": {
-        "email": "rauletec2020@gmail.com",
-        "password": "123456"
+  "login": {
+    "email": "rauletec2020@gmail.com",
+    "password": "123456"
+  },
+  "users": [
+    {
+      "id": 1,
+      "name": "Raul Santos",
+      "email": "rauletec2020@gmail.com",
+      "password": "123456",
+      "address": {
+        "street": "Rua tal",
+        "number": 35,
+        "district": "Lajeado",
+        "city": "São Paulo",
+        "uf": "SP"
+      }
     },
-    "users": [
-        {
-            "id": 1,
-            "name": "Raul Santos",
-            "email": "rauletec2020@gmail.com",
-            "password": "123456",
-            "address": {
-                "street": "Rua tal",
-                "number": 35,
-                "district": "Lajeado",
-                "city": "São Paulo",
-                "uf": "SP"
-            }
-        }
-    ],
-    "products": [
-        {
-            "id": 1,
-            "name": "Computador",
-            "price": 2500,
-            "description": "É muito ergonomico",
-            "url": "https://st.depositphotos.com/1000128/2642/i/600/depositphotos_26429241-stock-photo-desktop-computer-with-touchscreen-interface.jpg"
+    {
+      "address": {
+        "street": "Avenida Marabás",
+        "district": "Jardim Arco-Íris",
+        "city": "Cotia",
+        "uf": "SP",
+        "number": "691"
+      },
+      "postalCode": "06719020",
+      "id": 2
+    },
+    {
+      "data": {
+        "name": "",
+        "email": "",
+        "password": "",
+        "postalCode": "",
+        "address": {
+          "street": "",
+          "number": "",
+          "district": "",
+          "city": "",
+          "uf": ""
         },
-        {
-            "id": 2,
-            "name": "Headset",
-            "price": 300,
-            "description": "Alto-falante - 50 mm Impedância - 16 ohm Sensibilidade - 119dB ± 3dB Resposta de frequência - 20 Hz a 20 kHz Corrente operacional: 80mA Comprimento do cabo: 2,2 m3,5 MM + USB",
-            "url": "https://images.tcdn.com.br/img/img_prod/1066780/headset_havit_gamenote_h654d_rgb_super_bass_gaming_preto_3979_1_c8da1c21f25008d2b0e397135c852921_20211203085451.jpg"
+        "emailConfirm": "",
+        "passwordConfirm": ""
+      },
+      "id": 3
+    },
+    {
+      "address": {
+        "street": "Rua São Benedito",
+        "district": "Jardim Monte Santo",
+        "city": "Cotia",
+        "uf": "SP",
+        "number": "65"
+      },
+      "postalCode": "06700296",
+      "id": 4
+    },
+    {
+      "address": {
+        "street": "Rua São Benedito",
+        "district": "Jardim Monte Santo",
+        "city": "Cotia",
+        "uf": "SP",
+        "number": "45"
+      },
+      "postalCode": "06700296",
+      "id": 5
+    },
+    {
+      "address": {
+        "street": "Avenida Marabás",
+        "district": "Jardim Arco-Íris",
+        "city": "Cotia",
+        "uf": "SP",
+        "number": "45"
+      },
+      "postalCode": "06719020",
+      "data": [
+        "name",
+        "email",
+        "password",
+        "postalCode",
+        "address"
+      ],
+      "id": 6
+    },
+    {
+      "data": [
+        "name",
+        "email",
+        "password",
+        "postalCode",
+        "address"
+      ],
+      "id": 7
+    },
+    {
+      "data": {
+        "0": "name",
+        "1": "email",
+        "2": "password",
+        "3": "postalCode",
+        "4": "address"
+      },
+      "id": 8
+    },
+    {
+      "data": {
+        "address": {
+          "street": "Rua São Benedito",
+          "district": "Jardim Monte Santo",
+          "city": "Cotia",
+          "uf": "SP",
+          "number": "45"
         },
-        {
-            "id": 3,
-            "name": "Teclado",
-            "price": 250,
-            "description": "Tipo: Membrana Com Keycaps a Laser Layout: ABNT2 (95 teclas) Anti-ghosting: Sim, até 19 teclas Software: Não Tamanho do Cabo USB: 1,80m; Dimensões: 35,5cm (largura) x 17,3cm (profundidade) x 2,5cm (espessura); Peso: 530g;",
-            "url": "https://static.cdnlive.com.br/uploads/602/produto/16799391164655_zoom.jpg"
-        }
-    ]
+        "postalCode": "06700296"
+      },
+      "id": 9
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Computador",
+      "price": 2500,
+      "description": "É muito ergonomico",
+      "url": "https://st.depositphotos.com/1000128/2642/i/600/depositphotos_26429241-stock-photo-desktop-computer-with-touchscreen-interface.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Headset",
+      "price": 300,
+      "description": "Alto-falante - 50 mm Impedância - 16 ohm Sensibilidade - 119dB ± 3dB Resposta de frequência - 20 Hz a 20 kHz Corrente operacional: 80mA Comprimento do cabo: 2,2 m3,5 MM + USB",
+      "url": "https://images.tcdn.com.br/img/img_prod/1066780/headset_havit_gamenote_h654d_rgb_super_bass_gaming_preto_3979_1_c8da1c21f25008d2b0e397135c852921_20211203085451.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Teclado",
+      "price": 250,
+      "description": "Tipo: Membrana Com Keycaps a Laser Layout: ABNT2 (95 teclas) Anti-ghosting: Sim, até 19 teclas Software: Não Tamanho do Cabo USB: 1,80m; Dimensões: 35,5cm (largura) x 17,3cm (profundidade) x 2,5cm (espessura); Peso: 530g;",
+      "url": "https://static.cdnlive.com.br/uploads/602/produto/16799391164655_zoom.jpg"
+    }
+  ]
 }

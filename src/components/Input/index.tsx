@@ -10,7 +10,7 @@ interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
     addClassName?: string;
     labelClassName?: string;
     className?: string;
-    disabledInput?: string;
+    disabledInput?: boolean;
     error?: FieldError;
     label?: string;
 }
