@@ -19,7 +19,7 @@ const InputBase: ForwardRefRenderFunction<HTMLInputElement, IInputProps> = (
     {
         error = null,
         addClassName = '',
-        labelClassName = 'block text-sm text-slate-600 mb-1 font-normal font-roboto',
+        labelClassName = 'block text-xs text-slate-600 mb-1 font-normal font-roboto',
         className = `
         min-w-full
         p-2

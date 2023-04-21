@@ -52,6 +52,63 @@
       "email": "rauletec2020@gmail.com",
       "password": "123456",
       "id": 13
+    },
+    {
+      "address": {
+        "street": "Rua São Benedito",
+        "district": "Jardim Monte Santo",
+        "city": "Cotia",
+        "uf": "SP",
+        "number": "145"
+      },
+      "postalCode": "06700296",
+      "email": "teste",
+      "password": "123456",
+      "id": 14
+    },
+    {
+      "address": {
+        "street": "Rua São Benedito",
+        "district": "Jardim Monte Santo",
+        "city": "Cotia",
+        "uf": "SP",
+        "number": "11"
+      },
+      "postalCode": "06700296",
+      "name": "",
+      "email": "",
+      "password": "",
+      "id": 15
+    },
+    {
+      "address": {
+        "street": "Rua São Benedito",
+        "district": "Jardim Monte Santo",
+        "city": "Cotia",
+        "uf": "SP",
+        "number": "11"
+      },
+      "postalCode": "06700296",
+      "name": "",
+      "email": "",
+      "password": "",
+      "id": 16
+    },
+    {
+      "address": {
+        "street": "Rua São Benedito",
+        "district": "Jardim Monte Santo",
+        "city": "Cotia",
+        "uf": "SP",
+        "number": "11"
+      },
+      "postalCode": "06700296",
+      "value": [
+        null,
+        null,
+        null
+      ],
+      "id": 17
     }
   ],
   "products": [
