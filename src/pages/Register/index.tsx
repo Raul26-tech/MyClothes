@@ -36,23 +36,33 @@ export default function Register() {
     const navigate = useNavigate();
     const [accountAddress, setAccountAddress] = useState(false);
     const [dataAccount, setDataAccount] = useState(true);
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-    const { register, handleSubmit, formState, reset, getValues, setFocus } =
-        useForm<IRegisterProps>({
-            defaultValues: {
-                name: '',
-                email: '',
-                password: '',
-                postalCode: '',
-                address: {
-                    street: '',
-                    number: '',
-                    district: '',
-                    city: '',
-                    uf: '',
-                },
+    const {
+        register,
+        handleSubmit,
+        formState,
+        reset,
+        getValues,
+        setFocus,
+        watch,
+    } = useForm<IRegisterProps>({
+        defaultValues: {
+            name: '',
+            email: '',
+            password: '',
+            postalCode: '',
+            address: {
+                street: '',
+                number: '',
+                district: '',
+                city: '',
+                uf: '',
             },
-        });
+        },
+    });
 
     const handleSaveRegister: SubmitHandler<IRegisterProps> = async (
         submitData
@@ -60,6 +70,9 @@ export default function Register() {
         try {
             await api.post('/users', {
                 ...submitData,
+                name,
+                email,
+                password,
             });
             navigate('/login');
         } catch (error) {
@@ -108,11 +121,15 @@ export default function Register() {
                                     label="Nome completo"
                                     {...register('name')}
                                     addClassName="md:col-span-2"
+                                    onChange={(e) => {
+                                        setName(e.target.value);
+                                    }}
                                     error={formState.errors.name}
                                 />
                                 <Input
                                     label="Email"
                                     {...register('email')}
+                                    onChange={(e) => setEmail(e.target.value)}
                                     error={formState.errors.email}
                                 />
                                 <Input
@@ -123,6 +140,9 @@ export default function Register() {
                                 <Input
                                     label="Senha"
                                     {...register('password')}
+                                    onChange={(e) => {
+                                        setPassword(e.target.value);
+                                    }}
                                     type="password"
                                     error={formState.errors.password}
                                 />
