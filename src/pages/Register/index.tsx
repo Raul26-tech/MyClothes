@@ -6,6 +6,7 @@ import Button from '../../components/Buttom';
 import { HiArrowNarrowLeft, HiArrowNarrowRight } from 'react-icons/hi';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../../services/api';
+import Container from '../../components/Container';
 
 interface IViaCep {
     cep: string;
@@ -97,7 +98,15 @@ export default function Register() {
     }, []);
 
     return (
-        //
-        Register
+        <Container>
+            <div className="w-full h-full p-6">
+                <Titles>My store</Titles>
+            </div>
+            <div className="w-full h-full p-6 flex justify-center items-center rounded-md shadow-2xl drop-shadow-md">
+                <form className="grid md:grid-cols-3 p-3 bg-red-300 gap-3 space-y-3">
+                    <Input {...register('name')} />
+                </form>
+            </div>
+        </Container>
     );
 }
