@@ -70,8 +70,8 @@ export default function Register() {
                 ...submitData,
             });
             navigate('/login');
-        } catch (error) {
-            console.log(error);
+        } catch (e) {
+            console.log(e);
         }
     };
 
