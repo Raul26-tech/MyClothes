@@ -125,44 +125,44 @@ export default function Register() {
     }, []);
 
     return (
-        <div className="w-screen h-screen">
-            <Container addClassName="w-full h-full flex flex-col justify-center items-center md:p-[5rem]">
-                <Titles>My store</Titles>
+        <div className="w-full h-full">
+            <Container addClassName="w-full h-full flex flex-col justify-center items-center md:p-20">
+                <Titles>MyStore</Titles>
                 <form
                     onSubmit={handleSubmit(handleSaveRegister)}
-                    className="grid md:grid-cols-3 lg:grid-cols-4 p-3 gap-1 space-y-3"
+                    className="grid md:grid-cols-4 xl:grid-cols-4  p-3 gap-1 space-y-3"
                 >
                     <Input
                         label="Nome completo"
                         {...register('name')}
                         error={formState.errors.name}
-                        addClassName="md:col-span-4"
+                        addClassName="md:col-span-4 xl:col-span-4"
                     />
                     <Input
                         label="E-mail"
                         {...register('email')}
                         error={formState.errors.email}
-                        addClassName="md:col-span-2"
+                        addClassName="md:col-span-2 xl:col-span-2"
                     />
                     <Input
                         label="Confirmação de E-mail"
                         {...register('emailConfirm')}
                         error={formState.errors.emailConfirm}
-                        addClassName="md:col-span-2"
+                        addClassName="md:col-span-2 xl:col-span-2"
                     />
                     <Input
                         label="Senha"
                         {...register('password')}
                         error={formState.errors.password}
                         type="password"
-                        addClassName="md:col-span-2"
+                        addClassName="md:col-span-2 xl:col-span-2"
                     />
                     <Input
                         label="Confirmação de senha"
                         {...register('passwordConfirm')}
                         error={formState.errors.passwordConfirm}
                         type="password"
-                        addClassName="md:col-span-2"
+                        addClassName="md:col-span-2 xl:col-span-2"
                     />
                     <Input
                         label="CEP"
@@ -171,40 +171,40 @@ export default function Register() {
                             onBlur: handleGetPostalCode,
                         })}
                         error={formState.errors.postalCode}
-                        addClassName="md:col-span-1"
+                        addClassName="md:col-span-2 xl:col-span-1"
                     />
                     <Input
                         label="Rua"
                         {...register('address.street')}
                         error={formState.errors.address?.street}
-                        addClassName="md:col-span-3"
+                        addClassName="md:col-span-2 xl:col-span-3"
                         disabled
                     />
                     <Input
                         label="Número"
                         {...register('address.number')}
                         error={formState.errors.address?.number}
-                        addClassName="md:col-span-1"
+                        addClassName="md:col-span-2 xl:col-span-1"
                     />
                     <Input
                         label="Bairro"
                         {...register('address.district')}
                         error={formState.errors.address?.district}
-                        addClassName="md:col-span-1"
+                        addClassName="md:col-span-2 xl:col-span-1"
                         disabled
                     />
                     <Input
                         label="Cidade"
                         {...register('address.city')}
                         error={formState.errors.address?.city}
-                        addClassName="md:col-span-1"
+                        addClassName="md:col-span-2 xl:col-span-1"
                         disabled
                     />
                     <Input
                         label="UF"
                         {...register('address.uf')}
                         error={formState.errors.address?.uf}
-                        addClassName="md:col-span-1"
+                        addClassName="md:col-span-2 xl:col-span-1"
                         disabled
                     />
                     <div className="md:col-span-4 flex justify-between items-center md:grid-cols-3 lg:grid-cols-4 p-3 gap-1 space-y-3">
