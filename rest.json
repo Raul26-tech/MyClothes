@@ -173,6 +173,54 @@
       "emailConfirm": "",
       "passwordConfirm": "",
       "id": 21
+    },
+    {
+      "address": {
+        "street": "Rua São Benedito",
+        "district": "Jardim Monte Santo",
+        "city": "Cotia",
+        "uf": "SP",
+        "number": "11"
+      },
+      "name": "TESTE de inlusã",
+      "email": "rauletec2020@gmail.com",
+      "emailConfirm": "rauletec2020@gmail.com",
+      "password": "123456",
+      "passwordConfirm": "123456",
+      "postalCode": "06700296",
+      "id": 22
+    },
+    {
+      "address": {
+        "street": "Rua São Benedito",
+        "district": "Jardim Monte Santo",
+        "city": "Cotia",
+        "uf": "SP",
+        "postalCode": "06700296",
+        "number": "67"
+      },
+      "name": "Juliana Martins da Silva",
+      "email": "juliana@gmail.com",
+      "emailConfirm": "juliana@gmail.com",
+      "password": "123456",
+      "passwordConfirm": "123456",
+      "id": 23
+    },
+    {
+      "address": {
+        "street": "Avenida Marabás",
+        "district": "Jardim Arco-Íris",
+        "city": "Cotia",
+        "uf": "SP",
+        "postalCode": "06719020",
+        "number": "65"
+      },
+      "name": "Andreas Mathias",
+      "email": "mathias@gmail.com",
+      "emailConfirm": "mathias@gmail.com",
+      "password": "123456",
+      "passwordConfirm": "123456",
+      "id": 24
     }
   ],
   "products": [

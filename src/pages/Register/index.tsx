@@ -9,38 +9,30 @@ import { api } from '../../services/api';
 import Container from '../../components/Container';
 import Button from '../../components/Buttom';
 
-// const validations = yup.object({
-//     name: yup.string().required('Nome é obrigatório'),
-//     email: yup.string().required('E-mail obrigatório'),
-//     password: yup.string().required('Senha obrigatória'),
-//     passwordConfirm: yup
-//         .string()
-//         .required('Confirmação de senha obrigatória')
-//         .oneOf(
-//             [yup.ref('password')],
-//             'Senha e confirmação de senha não conferem'
-//         ),
-//     emailConfirm: yup
-//         .string()
-//         .required('Confirmação de e-mail é obrigatório')
-//         .oneOf(
-//             [yup.ref('email')],
-//             'E-mail e confirmação de e-mail não conferem'
-//         ),
-//     address: yup
-//         .object({
-//             postalCode: yup
-//                 .string()
-//                 .required('CEP obrigatório')
-//                 .min(8, 'CEP incompleto'),
-//             street: yup.string().required('Rua obrigatório'),
-//             number: yup.string().required('SN = Sem número'),
-//             city: yup.string().required('Cidade obrigatório'),
-//             state: yup.string().required('Estado obrigatório'),
-//             uf: yup.string().required('UF obrigatório'),
-//         })
-//         .required(),
-// });
+const validations = yup.object({
+    name: yup.string().required('Nome é obrigatório'),
+    password: yup.string().required('Senha obrigatória'),
+    passwordConfirm: yup
+        .string()
+        .required('Confirmação de senha obrigatória')
+        .oneOf(
+            [yup.ref('password')],
+            'Senha e confirmação de senha não conferem'
+        ),
+
+    email: yup.string().required('E-mail obrigatório'),
+    emailConfirm: yup
+        .string()
+        .required('Confirmação de e-mail é obrigatório')
+        .oneOf(
+            [yup.ref('email')],
+            'E-mail e confirmação de e-mail não conferem'
+        ),
+    address: yup.object({
+        postalCode: yup.string().required('CEP é obrigatório'),
+        number: yup.string().required('Número é obrigatório'),
+    }),
+});
 
 interface IViaCep {
     cep: string;
@@ -57,12 +49,12 @@ interface IRegisterProps {
     emailConfirm: string;
     password: string;
     passwordConfirm: string;
-    postalCode: string;
     address: {
+        postalCode: string;
         street: string;
         number: string;
         uf: string;
-        district: string;
+        district?: string;
         city: string;
     };
 }
@@ -72,13 +64,13 @@ export default function Register() {
 
     const { register, handleSubmit, formState, reset, getValues, setFocus } =
         useForm<IRegisterProps>({
-            // resolver: yupResolver(validations),
+            resolver: yupResolver(validations),
             defaultValues: {
                 name: '',
                 email: '',
                 password: '',
-                postalCode: '',
                 address: {
+                    postalCode: '',
                     street: '',
                     number: '',
                     district: '',
@@ -95,15 +87,15 @@ export default function Register() {
             const response = await api.post('/users', {
                 ...submitData,
             });
-
-            navigate('/login');
+            console.log(response.data);
+            navigate('/login', { replace: true });
         } catch (e) {
             console.log(e);
         }
     };
 
     const handleGetPostalCode = useCallback(() => {
-        const postalCode = getValues('postalCode');
+        const postalCode = getValues('address.postalCode');
 
         if (postalCode && postalCode.length === 8) {
             api.get<IViaCep>(`https://viacep.com.br/ws/${postalCode}/json/`)
@@ -167,10 +159,10 @@ export default function Register() {
                     <Input
                         label="CEP"
                         placeholder="Digite seu Cep"
-                        {...register('postalCode', {
+                        {...register('address.postalCode', {
                             onBlur: handleGetPostalCode,
                         })}
-                        error={formState.errors.postalCode}
+                        error={formState.errors.address?.postalCode}
                         addClassName="md:col-span-2 xl:col-span-1"
                     />
                     <Input
@@ -207,15 +199,15 @@ export default function Register() {
                         addClassName="md:col-span-2 xl:col-span-1"
                         disabled
                     />
-                    <div className="md:col-span-4 flex justify-between items-center md:grid-cols-3 lg:grid-cols-4 p-3 gap-1 space-y-3">
+                    <div className="md:col-span-4 flex justify-between items-center md:grid-cols-3 lg:grid-cols-4 md:p-3 gap-1 space-y-3">
                         <Link
                             to="/login"
-                            className="text-sm text-theme-blue-50 underline font-semibold"
+                            className="text-[10px] md:text-sm text-theme-blue-50 underline font-semibold"
                         >
                             Voltar para página de login
                         </Link>
                         <Button
-                            addClassName="text-white"
+                            addClassName="text-white p-2"
                             pattern="primary"
                             type="submit"
                         >
