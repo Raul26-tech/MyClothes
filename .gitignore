@@ -26,3 +26,5 @@ dist-ssr
 
 # misc
 .env
+rest.json
+routes.json
