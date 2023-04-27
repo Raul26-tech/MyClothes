@@ -1,21 +1,40 @@
-import { ButtonLink } from '../Buttom';
+import { ReactNode } from 'react';
 
-export default function Banner() {
+interface IBannerProps {
+    color?: string;
+    addClassname?: string;
+    className?: string;
+    title: string;
+    children: ReactNode;
+}
+
+export default function Banner({
+    color = 'bg-theme-blue-50',
+    className = `
+    w-full 
+    md:h-[20rem]
+    rounded-md
+    shadow-md
+    p-8
+    text-white
+    font-roboto
+    space-y-[3rem]
+    mb-6
+    `,
+    addClassname,
+    title,
+    children,
+}: IBannerProps) {
     return (
         <>
-            <div className="w-full md:h-[20rem] bg-theme-blue-50 rounded-md shadow-md p-8 text-white font-roboto space-y-[3rem] mb-6">
+            <div className={`${className} ${color} ${addClassname} `}>
                 <div className="w-full md:h-[5rem] flex justify-center items-center text-center ">
                     <span className="text-white font-bold text-3xl">
-                        Seja muito bem-vindo(a) ao nosso E-commerce
+                        {title}
                     </span>
                 </div>
                 <div className="w-full flex flex-col justify-center items-center p-3 space-y-4">
-                    <span className="text-white font-semibold text-center text-xl">
-                        Fique por dentro de nossas ofertas e produtos
-                    </span>
-                    <ButtonLink url="/products" pattern="primary">
-                        Saiba mais
-                    </ButtonLink>
+                    {children}
                 </div>
             </div>
         </>

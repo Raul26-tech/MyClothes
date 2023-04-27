@@ -54,7 +54,15 @@ export default function Main() {
     return (
         <Layout>
             <Content>
-                <Banner />
+                <Banner title="Seja bem-vindo(a) ao nosso E-commerce !">
+                    <span className="text-white font-semibold text-center text-xl">
+                        Faça suas compras no MyStore e fique por dentro de
+                        nossas ofertas e produtos
+                    </span>
+                    <ButtonLink url="/products" pattern="primary">
+                        Saiba mais
+                    </ButtonLink>
+                </Banner>
                 <Titles>Ofertas da semana</Titles>
                 <Slider
                     addClassName="mt-6 p-8"
