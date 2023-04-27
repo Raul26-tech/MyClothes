@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 interface IBannerProps {
     color?: string;
-    addClassname?: string;
+    addClassName?: string;
     className?: string;
     title: string;
     children: ReactNode;
@@ -21,13 +21,13 @@ export default function Banner({
     space-y-[3rem]
     mb-6
     `,
-    addClassname,
+    addClassName,
     title,
     children,
 }: IBannerProps) {
     return (
         <>
-            <div className={`${className} ${color} ${addClassname} `}>
+            <div className={`${className} ${color} ${addClassName} `}>
                 <div className="w-full md:h-[5rem] flex justify-center items-center text-center ">
                     <span className="text-white font-bold text-3xl">
                         {title}
