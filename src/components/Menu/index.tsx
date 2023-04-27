@@ -43,6 +43,14 @@ function HeaderMenu({ openClose }: IHeaderMenuProps) {
                 <nav className="w-full h-full flex flex-col items-center">
                     <ul className="w-full h-full flex flex-col justify-start items-start space-y-5 p-10 text-white text-lg">
                         <li className="w-full">
+                            <Link to="/">
+                                <div className="w-full flex justify-between items-center space-x-5">
+                                    <span>Inicio</span>
+                                    <TbCategory size={25} />
+                                </div>
+                            </Link>
+                        </li>
+                        <li className="w-full">
                             <Link to="/products">
                                 <div className="w-full flex justify-between items-center space-x-5">
                                     <span>Produtos</span>
@@ -51,15 +59,7 @@ function HeaderMenu({ openClose }: IHeaderMenuProps) {
                             </Link>
                         </li>
                         <li className="w-full">
-                            <Link to="/">
-                                <div className="w-full flex justify-between items-center space-x-5">
-                                    <span>Categorias</span>
-                                    <TbCategory size={25} />
-                                </div>
-                            </Link>
-                        </li>
-                        <li className="w-full">
-                            <Link to="/">
+                            <Link to="/users/:id">
                                 <div className="w-full flex justify-between items-center space-x-5">
                                     <span>Meu perfil</span>
                                     <BiUser size={25} />
