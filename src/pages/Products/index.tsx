@@ -5,7 +5,7 @@ import { api } from '../../services/api';
 import Cards from '../../components/Cards';
 import Banner from '../../components/Banner';
 
-interface IProductProps {
+export interface IProductProps {
     id: string;
     name: string;
     avaliation?: string;
