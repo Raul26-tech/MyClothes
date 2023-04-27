@@ -7,7 +7,9 @@ interface IContentProps {
 
 export default function Content({ children, addClassName }: IContentProps) {
     return (
-        <div className={`flex-1 h-full p-5 flex flex-col ${addClassName}`}>
+        <div
+            className={`flex-1 h-full p-5 flex flex-col overflow-x-auto ${addClassName}`}
+        >
             {children}
         </div>
     );

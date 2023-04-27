@@ -6,7 +6,7 @@ interface IProduct {
 
 export default function Cards({ products }: IProduct) {
     return (
-        <div className="w-20 md:w-60 bg-red-300 gap-2 p-3 flex justify-center items-center rounded-md shadow-md drop-shadow-xl">
+        <div className="w-[60rem] h-full flex flex-col flex-1 bg-red-300">
             <div className="">Teste</div>
         </div>
     );
