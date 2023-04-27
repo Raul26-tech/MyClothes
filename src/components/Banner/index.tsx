@@ -5,12 +5,13 @@ interface IBannerProps {
     addClassName?: string;
     className?: string;
     title: string;
-    children: ReactNode;
+    children?: ReactNode;
 }
 
 export default function Banner({
-    color = 'bg-theme-blue-50',
+    color = '',
     className = `
+    bg-theme-blue-50
     w-full 
     md:h-[20rem]
     rounded-md
@@ -33,9 +34,11 @@ export default function Banner({
                         {title}
                     </span>
                 </div>
-                <div className="w-full flex flex-col justify-center items-center p-3 space-y-4">
-                    {children}
-                </div>
+                {children && (
+                    <div className="w-full flex flex-col justify-center items-center p-3 space-y-4">
+                        {children}
+                    </div>
+                )}
             </div>
         </>
     );

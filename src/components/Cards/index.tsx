@@ -1,3 +1,7 @@
 export default function Cards() {
-    return <div>cards</div>;
+    return (
+        <div className="">
+            <div className="">Teste</div>
+        </div>
+    );
 }
