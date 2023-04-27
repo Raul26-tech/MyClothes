@@ -27,7 +27,7 @@ export default function Banner({
 }: IBannerProps) {
     return (
         <>
-            <div className={`${className} ${color} ${addClassName} `}>
+            <div className={`${className} ${color} ${addClassName}`}>
                 <div className="w-full md:h-[5rem] flex justify-center items-center text-center ">
                     <span className="text-white font-bold text-3xl">
                         {title}
