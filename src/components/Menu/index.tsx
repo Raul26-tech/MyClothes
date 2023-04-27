@@ -24,6 +24,25 @@ export function Item({ children, url }: IItemProps) {
     );
 }
 
+interface INavLinkProps {
+    url: string;
+    icon: ReactNode;
+    name: string;
+}
+
+export function NavLink({ icon, name, url }: INavLinkProps) {
+    return (
+        <li className="w-full p-3 hover:bg-theme-blue-50-hover transition duration-150 hover:translate-y-[0.3rem]">
+            <Link to={url}>
+                <div className="w-full flex justify-between items-center">
+                    <span>{name}</span>
+                    <span>{icon}</span>
+                </div>
+            </Link>
+        </li>
+    );
+}
+
 interface IHeaderMenuProps {
     openClose?: () => void;
 }
@@ -41,31 +60,22 @@ function HeaderMenu({ openClose }: IHeaderMenuProps) {
                     </button>
                 </div>
                 <nav className="w-full h-full flex flex-col items-center">
-                    <ul className="w-full h-full flex flex-col justify-start items-start space-y-5 p-10 text-white text-lg">
-                        <li className="w-full">
-                            <Link to="/">
-                                <div className="w-full flex justify-between items-center space-x-5">
-                                    <span>Inicio</span>
-                                    <TbCategory size={25} />
-                                </div>
-                            </Link>
-                        </li>
-                        <li className="w-full">
-                            <Link to="/products">
-                                <div className="w-full flex justify-between items-center space-x-5">
-                                    <span>Produtos</span>
-                                    <BsCart3 size={25} />
-                                </div>
-                            </Link>
-                        </li>
-                        <li className="w-full">
-                            <Link to="/users/:id">
-                                <div className="w-full flex justify-between items-center space-x-5">
-                                    <span>Meu perfil</span>
-                                    <BiUser size={25} />
-                                </div>
-                            </Link>
-                        </li>
+                    <ul className="w-full h-full flex flex-col justify-start items-start space-y-5 p-3 text-white text-lg">
+                        <NavLink
+                            url="/"
+                            name="Inicio"
+                            icon={<TbCategory size={25} />}
+                        />
+                        <NavLink
+                            url="/products"
+                            name="Produtos"
+                            icon={<BsCart3 size={25} />}
+                        />
+                        <NavLink
+                            url="/users/:id"
+                            name="Meu perfil"
+                            icon={<BiUser size={25} />}
+                        />
                     </ul>
                 </nav>
                 <div className="w-full h-20 p-3 flex justify-center items-center">
