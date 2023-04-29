@@ -6,6 +6,8 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+rest.json
+routes.json
 
 node_modules
 dist
@@ -27,5 +29,3 @@ dist-ssr
 # misc
 .env
 
-rest.json
-routes.json

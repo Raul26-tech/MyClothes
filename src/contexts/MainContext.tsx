@@ -28,7 +28,7 @@ export function MainProvider({ children }: IMainProviderProps) {
                 email,
                 password,
             });
-            console.log(response.data);
+
             navigate('/');
         } catch (error) {
             console.log(error);
