@@ -1,13 +1,9 @@
-import { useEffect, useState } from 'react';
-import { api } from '../../services/api';
-
 export interface IProductProps {
-    id?: string;
+    key?: string;
     name?: string;
-    avaliation?: string;
     price?: number;
-    url?: string;
     picture?: string;
+    avaliation?: string;
     description?: string;
 }
 
@@ -16,36 +12,14 @@ export default function Card({
     picture,
     description,
     price,
-    url,
     avaliation,
 }: IProductProps) {
-    const [products, setProducts] = useState<IProductProps[]>([]);
-
-    useEffect(() => {
-        api.get<IProductProps[]>(`/products`)
-            .then((response) => {
-                setProducts(response.data);
-            })
-            .catch((e) => console.log(e));
-    }, []);
-
     return (
-        <div className="w-full p-6 inline-flex gap-x-2 space-x-5 overflow-x-auto  bg-green-300">
-            {products.map(
-                ({
-                    price,
-                    description,
-                    id,
-                    name,
-                    picture,
-                    url,
-                    avaliation,
-                }) => (
-                    <div className="md:max-w-[40rem] bg-red-300 flex  justify-center items-center h-[20rem] md:max-h-64 md:h-[40rem] border-b-[1px] border-b-slate-600">
-                        Teste
-                    </div>
-                )
-            )}
+        <div className="w-full min-w-[15rem] p-6 flex flex-col gap-x-2 space-x-5 transition duration-300 hover:translate-y-2 bg-white rounded-sm shadow-2xl drop-shadow-md">
+            <div className="w-full h-3/4 bg-red-300 border-[1px] border-b-slate-500">
+                <img src={picture} alt="Imagem do produto" />
+            </div>
+            <div className="">Descrição</div>
         </div>
     );
 }

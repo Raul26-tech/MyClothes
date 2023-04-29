@@ -60,7 +60,7 @@ function HeaderMenu({ openClose }: IHeaderMenuProps) {
                     </button>
                 </div>
                 <nav className="w-full h-full flex flex-col items-center">
-                    <ul className="w-full h-full flex flex-col justify-start items-start space-y-5 p-3 text-white text-lg">
+                    <ul className="w-full h-full flex flex-col justify-start items-start space-y-3 p-3 text-white text-lg">
                         <NavLink
                             url="/"
                             name="Inicio"

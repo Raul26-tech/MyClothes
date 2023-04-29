@@ -32,7 +32,7 @@ export default function Products() {
                     title="Nossos produtos"
                     addClassName="md:h-[5rem] flex justify-center items-center"
                 />
-                <div className="w-full h-[20rem] flex bg-green-300  overflow-x-auto p-6 gap-1">
+                <div className="w-full h-[25rem] flex overflow-auto p-6 gap-x-10">
                     {products.map(
                         ({ description, id, name, price, url, avaliation }) => (
                             <Cards key={id} />
