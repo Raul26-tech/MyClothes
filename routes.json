@@ -1,6 +1,6 @@
 {
     "/users": "/users",
-    "/users/form/:id": "/user/:id",
+    "/users/form/:id": "/users/:id",
     "/products": "/products",
     "/products/form/:id": "/products/:id"
 }
