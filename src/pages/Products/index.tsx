@@ -28,9 +28,9 @@ export default function Products() {
             .catch((e) => console.log(e));
     }, []);
 
-    // const handleClickLine = useCallback((id: string) => {
-    //     navigate(`/products/form/${id}`);
-    // }, []);
+    const handleClickLine = useCallback((id: string) => {
+        navigate(`/products/form/${id}`);
+    }, []);
 
     return (
         <Layout>
@@ -53,9 +53,10 @@ export default function Products() {
                                 picture={picture}
                                 price={price}
                                 name={name}
-                                // onClickLine={() => {
-                                //     handleClickLine(id);
-                                // }}
+                                title="Adicionar ao carrinho"
+                                onClickLine={() => {
+                                    handleClickLine(id);
+                                }}
                             />
                         )
                     )}

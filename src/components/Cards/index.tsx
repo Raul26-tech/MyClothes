@@ -9,12 +9,14 @@ export interface IProductProps {
     avaliation?: string;
     description?: string;
     onClickLine?: () => void;
+    title: string;
 }
 
 export default function Card({
     name,
     picture,
     price,
+    title,
     onClickLine,
 }: IProductProps) {
     return (
@@ -35,11 +37,9 @@ export default function Card({
                 <Button
                     pattern="secondary"
                     addClassName="text-white text-sm gap-x-2 w-full"
-                    // onClick={() => {
-                    //     onClickLine;
-                    // }}
+                    onClick={onClickLine}
                 >
-                    Comprar
+                    {title}
                     <BsCart2 size={20} />
                 </Button>
             </div>
