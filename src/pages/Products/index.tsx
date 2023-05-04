@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import Content from '../../components/Content';
 import Layout from '../../components/Layout';
 import { api } from '../../services/api';
@@ -7,6 +7,8 @@ import Banner from '../../components/Banner';
 import { useNavigate } from 'react-router-dom';
 import Titles from '../../components/Titles';
 import Section from '../../components/Section';
+import Button from '../../components/Buttom';
+import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 
 export interface IProductProps {
     id: string;
@@ -26,13 +28,28 @@ export default function Products() {
         api.get<IProductProps[]>(`/products`)
             .then((response) => {
                 setProducts(response.data);
-                console.log(JSON.stringify(response.data, null, 2));
             })
             .catch((e) => console.log(e));
     }, []);
 
     const handleClickLine = useCallback((id: string) => {
         navigate(`/products/form/${id}`);
+    }, []);
+
+    const productsFiltered = useMemo(() => {
+        return {
+            smartphones: products.filter(
+                (categories) => categories.category === 'smartphones'
+            ),
+
+            computers: products.filter(
+                (categories) => categories.category === 'computers'
+            ),
+
+            headsets: products.filter(
+                (categories) => categories.category === 'headsets'
+            ),
+        };
     }, []);
 
     return (
@@ -44,28 +61,57 @@ export default function Products() {
                 />
                 <Titles addClassName="w-full mb-3">Desktops</Titles>
                 <Section>
-                    {/* <div className="w-full flex overflow-x-auto overflow-y-hidden p-3 gap-x-10"> */}
-                    {products.map(
-                        ({
-                            description,
-                            id,
-                            name,
-                            price,
-                            picture,
-                            avaliation,
-                        }) => (
-                            <Cards
-                                picture={picture}
-                                price={price}
-                                name={name}
-                                title="Comprar"
-                                onClickLine={() => {
-                                    handleClickLine(id);
-                                }}
-                            />
-                        )
-                    )}
-                    {/* </div> */}
+                    <div className="w-full flex overflow-x-auto p-3 gap-x-10">
+                        {productsFiltered.computers.map(
+                            ({ id, name, price, picture, avaliation }) => (
+                                <Cards
+                                    picture={picture}
+                                    price={price}
+                                    name={name}
+                                    title="Comprar"
+                                    onClickLine={() => {
+                                        handleClickLine(id);
+                                    }}
+                                />
+                            )
+                        )}
+                    </div>
+                </Section>
+                <Titles addClassName="w-full mb-3">Smartphones</Titles>
+                <Section>
+                    <div className="w-full flex overflow-x-auto p-3 gap-x-10">
+                        {productsFiltered.computers.map(
+                            ({ id, name, price, picture, avaliation }) => (
+                                <Cards
+                                    picture={picture}
+                                    price={price}
+                                    name={name}
+                                    title="Comprar"
+                                    onClickLine={() => {
+                                        handleClickLine(id);
+                                    }}
+                                />
+                            )
+                        )}
+                    </div>
+                </Section>
+                <Titles addClassName="w-full mb-3">Headseats</Titles>
+                <Section>
+                    <div className="w-full flex overflow-x-auto p-3 gap-x-10">
+                        {productsFiltered.computers.map(
+                            ({ id, name, price, picture, avaliation }) => (
+                                <Cards
+                                    picture={picture}
+                                    price={price}
+                                    name={name}
+                                    title="Comprar"
+                                    onClickLine={() => {
+                                        handleClickLine(id);
+                                    }}
+                                />
+                            )
+                        )}
+                    </div>
                 </Section>
             </Content>
         </Layout>

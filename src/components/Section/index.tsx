@@ -7,10 +7,6 @@ interface ISection {
 
 export default function Section({ children, addClassName }: ISection) {
     return (
-        <div
-            className={`w-full h-full p-6 bg-yellow-300 flex justify-center items-center gap-x-5  ${addClassName}`}
-        >
-            {children}
-        </div>
+        <div className={`w-full h-full p-6 ${addClassName}`}>{children}</div>
     );
 }
