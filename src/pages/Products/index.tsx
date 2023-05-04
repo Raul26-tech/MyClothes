@@ -7,8 +7,6 @@ import Banner from '../../components/Banner';
 import { useNavigate } from 'react-router-dom';
 import Titles from '../../components/Titles';
 import Section from '../../components/Section';
-import Button from '../../components/Buttom';
-import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
 
 export interface IProductProps {
     id: string;
@@ -50,7 +48,7 @@ export default function Products() {
                 (categories) => categories.category === 'headsets'
             ),
         };
-    }, []);
+    }, [products]);
 
     return (
         <Layout>
@@ -59,12 +57,13 @@ export default function Products() {
                     title="Nossos produtos"
                     addClassName="md:h-[2rem] flex justify-center items-center"
                 />
-                <Titles addClassName="w-full mb-3">Desktops</Titles>
-                <Section>
-                    <div className="w-full flex overflow-x-auto p-3 gap-x-10">
+                <Section addClassName="md:mb-[20rem]">
+                    <Titles addClassName="w-full mb-3">Desktops</Titles>
+                    <div className="w-full flex md:grid md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 overflow-x-auto p-3 gap-x-10 gap-y-5">
                         {productsFiltered.computers.map(
                             ({ id, name, price, picture, avaliation }) => (
                                 <Cards
+                                    key={id}
                                     picture={picture}
                                     price={price}
                                     name={name}
@@ -77,12 +76,13 @@ export default function Products() {
                         )}
                     </div>
                 </Section>
-                <Titles addClassName="w-full mb-3">Smartphones</Titles>
-                <Section>
-                    <div className="w-full flex overflow-x-auto p-3 gap-x-10">
-                        {productsFiltered.computers.map(
+                <Section addClassName="md:mb-auto">
+                    <Titles addClassName="w-full mb-3">Smartphones</Titles>
+                    <div className="w-full flex md:grid md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 overflow-x-auto p-3 gap-x-10 gap-y-5">
+                        {productsFiltered.smartphones.map(
                             ({ id, name, price, picture, avaliation }) => (
                                 <Cards
+                                    key={id}
                                     picture={picture}
                                     price={price}
                                     name={name}
@@ -95,12 +95,13 @@ export default function Products() {
                         )}
                     </div>
                 </Section>
-                <Titles addClassName="w-full mb-3">Headseats</Titles>
-                <Section>
-                    <div className="w-full flex overflow-x-auto p-3 gap-x-10">
+                <Section addClassName="md:mb-[20rem]">
+                    <Titles addClassName="w-full mb-3">Headseats</Titles>
+                    <div className="w-full flex md:grid md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 overflow-x-auto p-3 gap-x-10 gap-y-5">
                         {productsFiltered.computers.map(
                             ({ id, name, price, picture, avaliation }) => (
                                 <Cards
+                                    key={id}
                                     picture={picture}
                                     price={price}
                                     name={name}
