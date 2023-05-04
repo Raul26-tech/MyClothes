@@ -5,6 +5,8 @@ import { api } from '../../services/api';
 import Cards from '../../components/Cards';
 import Banner from '../../components/Banner';
 import { useNavigate } from 'react-router-dom';
+import Titles from '../../components/Titles';
+import Section from '../../components/Section';
 
 export interface IProductProps {
     id: string;
@@ -13,6 +15,7 @@ export interface IProductProps {
     avaliation?: string;
     price: number;
     picture: string;
+    category?: string;
 }
 
 export default function Products() {
@@ -37,9 +40,11 @@ export default function Products() {
             <Content>
                 <Banner
                     title="Nossos produtos"
-                    addClassName="md:h-[5rem] flex justify-center items-center"
+                    addClassName="md:h-[2rem] flex justify-center items-center"
                 />
-                <div className="w-full h-[25rem] flex overflow-auto p-6 gap-x-10">
+                <Titles addClassName="w-full mb-3">Desktops</Titles>
+                <Section>
+                    {/* <div className="w-full flex overflow-x-auto overflow-y-hidden p-3 gap-x-10"> */}
                     {products.map(
                         ({
                             description,
@@ -53,14 +58,15 @@ export default function Products() {
                                 picture={picture}
                                 price={price}
                                 name={name}
-                                title="Adicionar ao carrinho"
+                                title="Comprar"
                                 onClickLine={() => {
                                     handleClickLine(id);
                                 }}
                             />
                         )
                     )}
-                </div>
+                    {/* </div> */}
+                </Section>
             </Content>
         </Layout>
     );
