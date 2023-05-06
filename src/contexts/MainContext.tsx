@@ -1,10 +1,17 @@
-import { ReactNode, createContext, useCallback, useMemo } from 'react';
+import {
+    ReactNode,
+    createContext,
+    useCallback,
+    useEffect,
+    useMemo,
+    useState,
+} from 'react';
 import { api } from '../services/api';
 import { useNavigate } from 'react-router-dom';
 
 interface IUser {
     name: string;
-    email?: string;
+    email: string;
 }
 
 interface IMainContext {
@@ -21,6 +28,12 @@ interface IMainProviderProps {
 
 export function MainProvider({ children }: IMainProviderProps) {
     const navigate = useNavigate();
+    const [user, setUser] = useState();
+
+    useEffect(() => {
+        const userToken = localStorage.getItem('@Auth:token');
+        console.log(userToken);
+    }, []);
 
     const signIn = useCallback(async (email: string, password: string) => {
         try {
@@ -28,6 +41,12 @@ export function MainProvider({ children }: IMainProviderProps) {
                 email,
                 password,
             });
+
+            const token = localStorage.setItem(
+                '@Auth:token',
+                response.data.email
+            );
+            console.log(JSON.stringify(token, null, 2));
 
             navigate('/');
         } catch (error) {
