@@ -98,7 +98,7 @@ export default function Products() {
                 <Section addClassName="md:mb-[20rem]">
                     <Titles addClassName="w-full mb-3">Headseats</Titles>
                     <div className="w-full flex md:grid md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 overflow-x-auto p-3 gap-x-10 gap-y-5">
-                        {productsFiltered.computers.map(
+                        {productsFiltered.headsets.map(
                             ({ id, name, price, picture, avaliation }) => (
                                 <Cards
                                     key={id}
