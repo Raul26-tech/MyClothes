@@ -17,7 +17,7 @@ interface IUser {
 interface IMainContext {
     user?: IUser;
     signIn: (email: string, password: string) => Promise<void>;
-    signOut?: () => Promise<void>;
+    signOut: () => Promise<void>;
 }
 
 export const MainContext = createContext<IMainContext>({} as IMainContext);
@@ -28,7 +28,7 @@ interface IMainProviderProps {
 
 export function MainProvider({ children }: IMainProviderProps) {
     const navigate = useNavigate();
-    const [user, setUser] = useState();
+    const [user, setUser] = useState<IUser>();
 
     useEffect(() => {
         const userToken = localStorage.getItem('@Auth:token');
@@ -42,6 +42,8 @@ export function MainProvider({ children }: IMainProviderProps) {
                 password,
             });
 
+            setUser(response.data);
+
             const token = localStorage.setItem(
                 '@Auth:token',
                 response.data.email
@@ -54,9 +56,15 @@ export function MainProvider({ children }: IMainProviderProps) {
         }
     }, []);
 
+    const signOut = useCallback(async () => {
+        localStorage.removeItem('@Auth:token');
+        window.location.pathname = '/login';
+    }, []);
+
     const values = useMemo(
         () => ({
             signIn,
+            signOut,
         }),
         []
     );

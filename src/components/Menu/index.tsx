@@ -6,6 +6,7 @@ import { TbCategory } from 'react-icons/tb';
 import { BiUser } from 'react-icons/bi';
 import { VscSignOut } from 'react-icons/vsc';
 import Button from '../Buttom';
+import { useAuth } from '../../hooks/useAuth';
 
 interface IItemProps {
     text?: string;
@@ -48,6 +49,8 @@ interface IHeaderMenuProps {
 }
 
 function HeaderMenu({ openClose }: IHeaderMenuProps) {
+    const { signOut } = useAuth();
+
     return (
         <>
             <div className="w-full h-full flex flex-col justify-between items-center">
@@ -79,13 +82,16 @@ function HeaderMenu({ openClose }: IHeaderMenuProps) {
                     </ul>
                 </nav>
                 <div className="w-full h-20 p-3 flex justify-center items-center">
-                    <Button addClassName="w-20 text-white space-x-1 p-2 border-0">
-                        <Link to="/login" className="flex space-x-2">
+                    <Button
+                        addClassName="w-20 text-white space-x-1 p-2 border-0"
+                        onClick={signOut}
+                    >
+                        <div className="flex space-x-2">
                             <span>Sair</span>
                             <span>
                                 <VscSignOut size={20} />
                             </span>
-                        </Link>
+                        </div>
                     </Button>
                 </div>
             </div>
