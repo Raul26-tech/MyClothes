@@ -22,7 +22,7 @@ export default function Header({ openMenu }: IHeaderProps) {
                             <div className="flex justify-center items-center">
                                 <span>{user?.name}</span>
                             </div>
-                            <div className="w-[3rem] flex justify-center items-center bg-theme-blue-50 p-2 rounded-full">
+                            <div className="hidden w-[3rem] md:flex justify-center items-center bg-theme-blue-50 p-2 rounded-full">
                                 <BiUser className="w-full h-9 md:h-12 text-white" />
                             </div>
                         </div>

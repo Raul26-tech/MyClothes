@@ -55,7 +55,7 @@ export default function Products() {
             <Content>
                 <Banner
                     title="Nossos produtos"
-                    addClassName="md:h-[2rem] flex justify-center items-center"
+                    addClassName="h-[1rem] md:h-[2rem] flex justify-center items-center"
                 />
                 <Section addClassName="md:mb-[20rem]">
                     <Titles addClassName="w-full mb-3">Desktops</Titles>
