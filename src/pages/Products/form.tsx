@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import Layout from '../../components/Layout';
 import Content from '../../components/Content';
 import { IProductProps } from '../../components/Cards';
+import Container from '../../components/Container';
 
 export default function FormProduts() {
     const { id } = useParams();
@@ -23,7 +24,9 @@ export default function FormProduts() {
     return (
         <Layout>
             <Content>
-                <div className="">{productRequest?.name}</div>
+                <Container addClassName="border-[1px] border-slate-200">
+                    <div className="">Teste</div>
+                </Container>
             </Content>
         </Layout>
     );

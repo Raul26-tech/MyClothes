@@ -57,7 +57,7 @@ export default function Products() {
                     title="Nossos produtos"
                     addClassName="h-[1rem] md:h-[2rem] flex justify-center items-center"
                 />
-                <Section addClassName="md:mb-[20rem]">
+                <Section>
                     <Titles addClassName="w-full mb-3">Desktops</Titles>
                     <div className="w-full flex md:grid md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 overflow-x-auto p-3 gap-x-10 gap-y-5">
                         {productsFiltered.computers.map(
@@ -76,7 +76,7 @@ export default function Products() {
                         )}
                     </div>
                 </Section>
-                <Section addClassName="md:mb-auto">
+                <Section>
                     <Titles addClassName="w-full mb-3">Smartphones</Titles>
                     <div className="w-full flex md:grid md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 overflow-x-auto p-3 gap-x-10 gap-y-5">
                         {productsFiltered.smartphones.map(
@@ -95,7 +95,7 @@ export default function Products() {
                         )}
                     </div>
                 </Section>
-                <Section addClassName="md:mb-[20rem]">
+                <Section>
                     <Titles addClassName="w-full mb-3">Headseats</Titles>
                     <div className="w-full flex md:grid md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 overflow-x-auto p-3 gap-x-10 gap-y-5">
                         {productsFiltered.headsets.map(
