@@ -24,9 +24,9 @@ export default function FormProduts() {
     return (
         <Layout>
             <Content>
-                <Container addClassName="border-[1px] border-slate-200">
+                {/* <Container addClassName="border-[1px] border-slate-200">
                     <div className="">Teste</div>
-                </Container>
+                </Container> */}
             </Content>
         </Layout>
     );

@@ -12,7 +12,7 @@ export default function Header({ openMenu }: IHeaderProps) {
 
     return (
         <>
-            <header className="w-full h-16 md:h-24 p-3 flex justify-end firs items-center shadow-xl">
+            <header className="w-full h-16 md:h-24 p-3 flex justify-end items-center shadow-xl">
                 <button className="w-full h-full flex justify-start items-center p-6">
                     <HiMenu size={30} onClick={openMenu} />
                 </button>

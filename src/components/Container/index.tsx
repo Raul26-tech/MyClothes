@@ -6,5 +6,9 @@ interface IContainerProps {
 }
 
 export default function Container({ addClassName, children }: IContainerProps) {
-    return <div className={`flex-1 p-3 ${addClassName}`}>{children}</div>;
+    return (
+        <div className={`flex-1 overflow-y-auto p-3 ${addClassName}`}>
+            {children}
+        </div>
+    );
 }
