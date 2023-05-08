@@ -116,10 +116,13 @@ export default function Products() {
                     </div>
                 </Section>
                 <Footer
-                    addClassName="border-2 border-white border-t-slate-600"
+                    addClassName="border-2 border-white border-t-theme-blue-50"
                     addColorTitle="text-black"
                 >
-                    &copy; 2023 | Todos os direitos são reservados - Raul Santos
+                    <span className="text-theme-blue-50">
+                        &copy; 2023 | Todos os direitos são reservados - Raul
+                        Santos
+                    </span>
                 </Footer>
             </Content>
         </Layout>
