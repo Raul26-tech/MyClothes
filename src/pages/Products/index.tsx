@@ -7,6 +7,7 @@ import Banner from '../../components/Banner';
 import { useNavigate } from 'react-router-dom';
 import Titles from '../../components/Titles';
 import Section from '../../components/Section';
+import Footer from '../../components/Footer';
 
 export interface IProductProps {
     id: string;
@@ -114,6 +115,12 @@ export default function Products() {
                         )}
                     </div>
                 </Section>
+                <Footer
+                    addClassName="border-2 border-white border-t-slate-600"
+                    addColorTitle="text-black"
+                >
+                    &copy; 2023 | Todos os direitos são reservados - Raul Santos
+                </Footer>
             </Content>
         </Layout>
     );
