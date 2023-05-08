@@ -58,7 +58,7 @@ export default function Products() {
                     title="Nossos produtos"
                     addClassName="h-[1rem] md:h-[2rem] flex justify-center items-center"
                 />
-                <Section>
+                <Section addClassName="md:mb-[20rem]">
                     <Titles addClassName="w-full mb-3">Desktops</Titles>
                     <div className="w-full flex md:grid md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 overflow-x-auto p-3 gap-x-10 gap-y-5">
                         {productsFiltered.computers.map(
@@ -96,7 +96,7 @@ export default function Products() {
                         )}
                     </div>
                 </Section>
-                <Section>
+                <Section addClassName="md:mb-[20rem]">
                     <Titles addClassName="w-full mb-3">Headseats</Titles>
                     <div className="w-full flex md:grid md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 overflow-x-auto p-3 gap-x-10 gap-y-5">
                         {productsFiltered.headsets.map(
@@ -116,10 +116,13 @@ export default function Products() {
                     </div>
                 </Section>
                 <Footer
-                    addClassName="border-2 border-white border-t-slate-600"
+                    addClassName="border-2 border-white border-t-theme-blue-50"
                     addColorTitle="text-black"
                 >
-                    &copy; 2023 | Todos os direitos são reservados - Raul Santos
+                    <span className="text-theme-blue-50">
+                        &copy; 2023 | Todos os direitos são reservados - Raul
+                        Santos
+                    </span>
                 </Footer>
             </Content>
         </Layout>
