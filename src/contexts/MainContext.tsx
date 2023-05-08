@@ -9,7 +9,7 @@ import {
 import { api } from '../services/api';
 import { useNavigate } from 'react-router-dom';
 
-interface IUser {
+export interface IUser {
     name: string;
     email: string;
 }
@@ -41,8 +41,6 @@ export function MainProvider({ children }: IMainProviderProps) {
                 email,
                 password,
             });
-
-            setUser(response.data);
 
             const token = localStorage.setItem(
                 '@Auth:token',
