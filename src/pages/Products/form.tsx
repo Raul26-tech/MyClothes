@@ -5,6 +5,7 @@ import Layout from '../../components/Layout';
 import Content from '../../components/Content';
 import { IProductProps } from '../../components/Cards';
 import Container from '../../components/Container';
+import Titles from '../../components/Titles';
 
 export default function FormProduts() {
     const { id } = useParams();
@@ -24,9 +25,20 @@ export default function FormProduts() {
     return (
         <Layout>
             <Content>
-                {/* <Container addClassName="border-[1px] border-slate-200">
-                    <div className="">Teste</div>
-                </Container> */}
+                <div className="w-full h-full p-3 grid md:grid-cols-2 flex-col border-[1px] border-slate-300">
+                    <div className="w-full h-full justify-center items-center">
+                        <Titles>{productRequest?.name}</Titles>
+                        <div className="flex justify-center items-center p-3">
+                            <picture>
+                                <img
+                                    src={productRequest?.picture}
+                                    alt="Imagem do produto"
+                                    className="w-[20rem] h-52 md:h-80 bg-cover bg-center"
+                                />
+                            </picture>
+                        </div>
+                    </div>
+                </div>
             </Content>
         </Layout>
     );
