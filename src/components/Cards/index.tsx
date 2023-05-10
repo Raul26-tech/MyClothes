@@ -6,6 +6,7 @@ export interface IProductProps {
     name?: string;
     price?: number;
     picture?: string;
+    category?: string;
     avaliation?: string;
     description?: string;
     onClickLine?: () => void;
