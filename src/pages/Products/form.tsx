@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { api } from '../../services/api';
 import { useParams } from 'react-router-dom';
 import Layout from '../../components/Layout';
@@ -7,9 +7,12 @@ import { IProductProps } from '../../components/Cards';
 import Titles from '../../components/Titles';
 import Button from '../../components/Buttom';
 import { BsCart3 } from 'react-icons/bs';
+import { BuyCartContext } from '../../contexts/BuyCartContext';
+import { useBuyCart } from '../../hooks/useBuyCart';
 
 export default function FormProduts() {
     const { id } = useParams();
+    const { addProdutCart } = useBuyCart();
     const [productRequest, setProductRequest] = useState<IProductProps>();
 
     useEffect(() => {
@@ -40,7 +43,7 @@ export default function FormProduts() {
                         </div>
                     </div>
                     <div className="w-full h-full flex flex-col justify-center items-center p-3 bg-slate-100 rounded-md">
-                        <div className="w-full h-full flex flex-col justify-start items-center p-3">
+                        <section className="w-full h-full flex flex-col justify-start items-center p-3">
                             <Titles>{productRequest?.name}</Titles>
                             <p className="text-slate-700 text-lg">
                                 {productRequest?.description}
@@ -51,7 +54,7 @@ export default function FormProduts() {
                                     currency: 'BRL',
                                 }).format(Number(productRequest?.price))}
                             </span>
-                        </div>
+                        </section>
                         <div className="w-full h-full flex flex-col justify-end p-6 space-y-3 bg-orange">
                             <Button
                                 pattern="secondary"
@@ -61,6 +64,7 @@ export default function FormProduts() {
                             </Button>
                             <Button
                                 pattern="secondary"
+                                onClick={addProdutCart}
                                 addClassName="text-white space-x-3 hover:bg-orange-800"
                             >
                                 <span>Adicionar ao carrinho</span>
