@@ -8,10 +8,11 @@ import Titles from '../../components/Titles';
 import Button from '../../components/Buttom';
 import { BsCart3 } from 'react-icons/bs';
 import { BuyCartContext } from '../../contexts/BuyCartContext';
+import { useBuyCart } from '../../hooks/useBuyCart';
 
 export default function FormProduts() {
     const { id } = useParams();
-    const { addProdutCart } = useContext(BuyCartContext);
+    const { addProdutCart } = useBuyCart();
     const [productRequest, setProductRequest] = useState<IProductProps>();
 
     useEffect(() => {
