@@ -40,7 +40,7 @@ export default function FormProduts() {
                         </div>
                     </div>
                     <div className="w-full h-full flex flex-col justify-center items-center p-3 bg-slate-100 rounded-md">
-                        <div className="w-full h-full flex flex-col justify-start items-center p-3">
+                        <section className="w-full h-full flex flex-col justify-start items-center p-3">
                             <Titles>{productRequest?.name}</Titles>
                             <p className="text-slate-700 text-lg">
                                 {productRequest?.description}
@@ -51,7 +51,7 @@ export default function FormProduts() {
                                     currency: 'BRL',
                                 }).format(Number(productRequest?.price))}
                             </span>
-                        </div>
+                        </section>
                         <div className="w-full h-full flex flex-col justify-end p-6 space-y-3 bg-orange">
                             <Button
                                 pattern="secondary"
