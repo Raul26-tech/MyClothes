@@ -1,6 +1,7 @@
-import { ReactNode, createContext } from 'react';
+import { ReactNode, createContext, useState } from 'react';
 
 interface IBuyCartContext {
+    quantityProduct: number;
     addProdutCart: () => void;
     removeProductCart: () => void;
 }
@@ -14,6 +15,8 @@ interface IBuyCartProvider {
 }
 
 export function BuyCartProvider({ children }: IBuyCartProvider) {
+    const [quantity, setQuantity] = useState<number>(0);
+
     const addProdutCart = () => {
         console.log('Teste');
     };
@@ -23,7 +26,13 @@ export function BuyCartProvider({ children }: IBuyCartProvider) {
     };
 
     return (
-        <BuyCartContext.Provider value={{ addProdutCart, removeProductCart }}>
+        <BuyCartContext.Provider
+            value={{
+                addProdutCart,
+                removeProductCart,
+                quantityProduct: quantity,
+            }}
+        >
             {children}
         </BuyCartContext.Provider>
     );
