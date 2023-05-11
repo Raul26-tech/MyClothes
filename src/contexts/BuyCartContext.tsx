@@ -18,7 +18,7 @@ export function BuyCartProvider({ children }: IBuyCartProvider) {
     const [quantity, setQuantity] = useState<number>(0);
 
     const addProdutCart = () => {
-        console.log('Teste');
+        setQuantity(quantity + 1);
     };
 
     const removeProductCart = () => {
