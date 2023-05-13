@@ -32,6 +32,8 @@ export function MainProvider({ children }: IMainProviderProps) {
 
     useEffect(() => {
         const userToken = localStorage.getItem('@Auth:token');
+        const quantityCart = localStorage.getItem('@Quantity');
+
         console.log(userToken);
     }, []);
 

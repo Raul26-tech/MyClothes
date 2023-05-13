@@ -1,9 +1,14 @@
 import { ReactNode, createContext, useState } from 'react';
+import { IProductProps } from '../components/Cards';
 
 interface IBuyCartContext {
     quantityProduct: number;
     addProdutCart: () => void;
     removeProductCart: () => void;
+}
+
+interface IProduct {
+    products: IProductProps[];
 }
 
 export const BuyCartContext = createContext<IBuyCartContext>(
@@ -19,6 +24,7 @@ export function BuyCartProvider({ children }: IBuyCartProvider) {
 
     const addProdutCart = () => {
         setQuantity(quantity + 1);
+        localStorage.setItem('@Quantity', quantity.toLocaleString());
     };
 
     const removeProductCart = () => {
