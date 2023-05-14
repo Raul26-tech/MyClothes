@@ -63,7 +63,9 @@ export default function FormProduts() {
                             </Button>
                             <Button
                                 pattern="secondary"
-                                onClick={addProdutCart}
+                                onClick={() => {
+                                    addProdutCart;
+                                }}
                                 addClassName="text-white space-x-3 hover:bg-orange-800"
                             >
                                 <span>Adicionar ao carrinho</span>
