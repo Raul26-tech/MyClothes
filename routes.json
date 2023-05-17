@@ -3,5 +3,5 @@
     "/users/form/:id": "/users/:id",
     "/products": "/products",
     "/products/form/:id": "/products/:id",
-    "/products/:id/cart/": "/products/:id/cart"
+    "cart": "/cart"
 }
