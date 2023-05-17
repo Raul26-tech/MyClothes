@@ -64,7 +64,7 @@ export default function FormProduts() {
                             <Button
                                 pattern="secondary"
                                 onClick={() => {
-                                    addProdutCart;
+                                    addProdutCart(productRequest);
                                 }}
                                 addClassName="text-white space-x-3 hover:bg-orange-800"
                             >

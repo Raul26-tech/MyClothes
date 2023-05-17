@@ -1,14 +1,18 @@
 import { ReactNode, createContext, useState } from 'react';
 import { IProductProps } from '../components/Cards';
+interface IProduct {
+    name?: string;
+    price?: number;
+    picture?: string;
+    category?: string;
+    avaliation?: string;
+    description?: string;
+}
 
 interface IBuyCartContext {
     quantityProduct: number;
-    addProdutCart: () => void;
+    addProdutCart: (product: IProduct | undefined) => void;
     removeProductCart: () => void;
-}
-
-interface IProduct {
-    products: IProductProps[];
 }
 
 export const BuyCartContext = createContext<IBuyCartContext>(
@@ -21,9 +25,12 @@ interface IBuyCartProvider {
 
 export function BuyCartProvider({ children }: IBuyCartProvider) {
     const [quantity, setQuantity] = useState<number>(0);
+    const [prod, setProd] = useState<IProduct>();
 
     const addProdutCart = () => {
         setQuantity(quantity + 1);
+        setProd(prod);
+        console.log(prod);
         localStorage.setItem('@Quantity', quantity.toLocaleString());
     };
 
