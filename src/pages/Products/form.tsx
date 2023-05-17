@@ -8,14 +8,15 @@ import Titles from '../../components/Titles';
 import Button from '../../components/Buttom';
 import { BsCart3 } from 'react-icons/bs';
 import { useBuyCart } from '../../hooks/useBuyCart';
+import { IProduct } from '../../contexts/BuyCartContext';
 
 export default function FormProduts() {
     const { id } = useParams();
     const { addProdutCart } = useBuyCart();
-    const [productRequest, setProductRequest] = useState<IProductProps>();
+    const [productRequest, setProductRequest] = useState<IProduct>();
 
     useEffect(() => {
-        api.get<IProductProps>(`/products/${id}`)
+        api.get<IProduct>(`/products/${id}`)
             .then((res) => {
                 console.log(res.data);
                 setProductRequest(res.data);
@@ -63,7 +64,9 @@ export default function FormProduts() {
                             </Button>
                             <Button
                                 pattern="secondary"
-                                onClick={addProdutCart}
+                                onClick={() => {
+                                    addProdutCart(productRequest);
+                                }}
                                 addClassName="text-white space-x-3 hover:bg-orange-800"
                             >
                                 <span>Adicionar ao carrinho</span>
