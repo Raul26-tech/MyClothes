@@ -1,12 +1,16 @@
 import { ReactNode, createContext, useState } from 'react';
 import { IProductProps } from '../components/Cards';
-interface IProduct {
-    name?: string;
-    price?: number;
+import { SubmitHandler } from 'react-hook-form';
+import { api } from '../services/api';
+export interface IProduct {
+    id: string;
+    name: string;
+    price: number;
     picture?: string;
-    category?: string;
+    category: string;
     avaliation?: string;
-    description?: string;
+    description: string;
+    observantion: string;
 }
 
 interface IBuyCartContext {
@@ -25,13 +29,17 @@ interface IBuyCartProvider {
 
 export function BuyCartProvider({ children }: IBuyCartProvider) {
     const [quantity, setQuantity] = useState<number>(0);
-    const [prod, setProd] = useState<IProduct>();
+    const [prod, setProd] = useState<IProduct | undefined>();
 
-    const addProdutCart = () => {
-        setQuantity(quantity + 1);
-        setProd(prod);
-        console.log(prod);
-        localStorage.setItem('@Quantity', quantity.toLocaleString());
+    const addProdutCart = (product: typeof prod) => {
+        api.post('/cart', product)
+            .then((res) => {
+                setQuantity(quantity + 1);
+                setProd(prod);
+                console.log(JSON.stringify(res.data, null, 2));
+                localStorage.setItem('@Quantity', quantity.toLocaleString());
+            })
+            .catch((e) => console.log(e));
     };
 
     const removeProductCart = () => {
