@@ -12,13 +12,10 @@ export interface IProduct {
     observantion: string;
 }
 
-interface IAddProductCart {
-    product: IProduct | undefined;
-}
-
 interface IBuyCartContext {
-    quantity?: number;
-    addProdutCart: (product: IAddProductCart) => void;
+    valueTotal?: number;
+    quantityProductAdded: number;
+    addProdutCart: (product: IProduct) => void;
     removeProductCart: () => void;
 }
 
@@ -32,14 +29,16 @@ interface IBuyCartProvider {
 
 export function BuyCartProvider({ children }: IBuyCartProvider) {
     const [quantity, setQuantity] = useState<number>(0);
-    const [productAdded, setProductAdded] = useState<IAddProductCart>();
+    const [totalValue, setTotalValue] = useState(0);
+    const [productAdded, setProductAdded] = useState<IProduct>();
 
-    const addProdutCart = async (product: IAddProductCart) => {
+    const addProdutCart = async (product: IProduct) => {
         await api
             .post('/cart', product)
             .then(() => {
                 setQuantity(quantity + 1);
                 setProductAdded(product);
+                // setTotalValue(totalValue + product.product?.price);
                 // console.log(productAdded);
             })
             .catch((e) => console.log(e));
@@ -52,9 +51,10 @@ export function BuyCartProvider({ children }: IBuyCartProvider) {
     return (
         <BuyCartContext.Provider
             value={{
-                quantity,
+                // valueTotal,
                 addProdutCart,
                 removeProductCart,
+                quantityProductAdded: quantity,
             }}
         >
             {children}

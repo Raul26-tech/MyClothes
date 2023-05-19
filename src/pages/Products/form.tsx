@@ -3,35 +3,32 @@ import { api } from '../../services/api';
 import { useParams } from 'react-router-dom';
 import Layout from '../../components/Layout';
 import Content from '../../components/Content';
-import { IProductProps } from '../../components/Cards';
 import Titles from '../../components/Titles';
 import Button from '../../components/Buttom';
 import { BsCart3 } from 'react-icons/bs';
 import { useBuyCart } from '../../hooks/useBuyCart';
 import { IProduct } from '../../contexts/BuyCartContext';
 
-interface ICurrentProduct {
-    id: string;
-    name: string;
-    price: number;
-    picture?: string;
-    category: string;
-    avaliation?: string;
-    description: string;
-    observantion: string;
-}
-
 export default function FormProduts() {
     const { id } = useParams();
     const { addProdutCart } = useBuyCart();
     const [productRequest, setProductRequest] = useState<IProduct>();
-    const [currentProd, setCurrentProd] = useState<ICurrentProduct>();
 
     useEffect(() => {
         api.get<IProduct>(`/products/${id}`)
-            .then(({ data }) => {
-                // console.log(data);
-                setProductRequest(data);
+            .then((response) => {
+                console.log();
+                setProductRequest({
+                    id: response.data.id,
+                    category: response.data.category,
+                    description: response.data.description,
+                    name: response.data.name,
+                    observantion: response.data.observantion,
+                    price: response.data.price,
+                    avaliation: response.data.avaliation,
+                    picture: response.data.picture,
+                });
+                console.log(productRequest);
             })
             .catch((e) => {
                 console.log(e);
@@ -77,9 +74,7 @@ export default function FormProduts() {
                             <Button
                                 pattern="secondary"
                                 onClick={() => {
-                                    addProdutCart({
-                                        product: productRequest,
-                                    });
+                                    // addProdutCart(productRequest);
                                 }}
                                 addClassName="text-white space-x-3 hover:bg-orange-800"
                             >
