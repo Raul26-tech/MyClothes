@@ -10,16 +10,28 @@ import { BsCart3 } from 'react-icons/bs';
 import { useBuyCart } from '../../hooks/useBuyCart';
 import { IProduct } from '../../contexts/BuyCartContext';
 
+interface ICurrentProduct {
+    id: string;
+    name: string;
+    price: number;
+    picture?: string;
+    category: string;
+    avaliation?: string;
+    description: string;
+    observantion: string;
+}
+
 export default function FormProduts() {
     const { id } = useParams();
     const { addProdutCart } = useBuyCart();
     const [productRequest, setProductRequest] = useState<IProduct>();
+    const [currentProd, setCurrentProd] = useState<ICurrentProduct>();
 
     useEffect(() => {
         api.get<IProduct>(`/products/${id}`)
-            .then((res) => {
-                console.log(res.data);
-                setProductRequest(res.data);
+            .then(({ data }) => {
+                // console.log(data);
+                setProductRequest(data);
             })
             .catch((e) => {
                 console.log(e);
@@ -65,7 +77,9 @@ export default function FormProduts() {
                             <Button
                                 pattern="secondary"
                                 onClick={() => {
-                                    addProdutCart(productRequest);
+                                    addProdutCart({
+                                        product: productRequest,
+                                    });
                                 }}
                                 addClassName="text-white space-x-3 hover:bg-orange-800"
                             >
