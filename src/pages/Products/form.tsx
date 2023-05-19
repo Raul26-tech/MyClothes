@@ -3,7 +3,6 @@ import { api } from '../../services/api';
 import { useParams } from 'react-router-dom';
 import Layout from '../../components/Layout';
 import Content from '../../components/Content';
-import { IProductProps } from '../../components/Cards';
 import Titles from '../../components/Titles';
 import Button from '../../components/Buttom';
 import { BsCart3 } from 'react-icons/bs';
@@ -17,9 +16,19 @@ export default function FormProduts() {
 
     useEffect(() => {
         api.get<IProduct>(`/products/${id}`)
-            .then((res) => {
-                console.log(res.data);
-                setProductRequest(res.data);
+            .then((response) => {
+                console.log();
+                setProductRequest({
+                    id: response.data.id,
+                    category: response.data.category,
+                    description: response.data.description,
+                    name: response.data.name,
+                    observantion: response.data.observantion,
+                    price: response.data.price,
+                    avaliation: response.data.avaliation,
+                    picture: response.data.picture,
+                });
+                console.log(productRequest);
             })
             .catch((e) => {
                 console.log(e);
@@ -65,7 +74,7 @@ export default function FormProduts() {
                             <Button
                                 pattern="secondary"
                                 onClick={() => {
-                                    addProdutCart(productRequest);
+                                    // addProdutCart(productRequest);
                                 }}
                                 addClassName="text-white space-x-3 hover:bg-orange-800"
                             >

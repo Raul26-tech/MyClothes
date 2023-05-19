@@ -1,7 +1,6 @@
 import { ReactNode, createContext, useState } from 'react';
-import { IProductProps } from '../components/Cards';
-import { SubmitHandler } from 'react-hook-form';
 import { api } from '../services/api';
+
 export interface IProduct {
     id: string;
     name: string;
@@ -14,8 +13,9 @@ export interface IProduct {
 }
 
 interface IBuyCartContext {
-    quantityProduct: number;
-    addProdutCart: (product: IProduct | undefined) => void;
+    valueTotal?: number;
+    quantityProductAdded: number;
+    addProdutCart: (product: IProduct) => void;
     removeProductCart: () => void;
 }
 
@@ -29,15 +29,17 @@ interface IBuyCartProvider {
 
 export function BuyCartProvider({ children }: IBuyCartProvider) {
     const [quantity, setQuantity] = useState<number>(0);
-    const [prod, setProd] = useState<IProduct | undefined>();
+    const [totalValue, setTotalValue] = useState(0);
+    const [productAdded, setProductAdded] = useState<IProduct>();
 
-    const addProdutCart = (product: typeof prod) => {
-        api.post('/cart', product)
-            .then((res) => {
+    const addProdutCart = async (product: IProduct) => {
+        await api
+            .post('/cart', product)
+            .then(() => {
                 setQuantity(quantity + 1);
-                setProd(prod);
-                console.log(JSON.stringify(res.data, null, 2));
-                localStorage.setItem('@Quantity', quantity.toLocaleString());
+                setProductAdded(product);
+                // setTotalValue(totalValue + product.product?.price);
+                // console.log(productAdded);
             })
             .catch((e) => console.log(e));
     };
@@ -49,9 +51,10 @@ export function BuyCartProvider({ children }: IBuyCartProvider) {
     return (
         <BuyCartContext.Provider
             value={{
+                // valueTotal,
                 addProdutCart,
                 removeProductCart,
-                quantityProduct: quantity,
+                quantityProductAdded: quantity,
             }}
         >
             {children}
