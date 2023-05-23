@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { api } from '../../services/api';
 import { useParams } from 'react-router-dom';
 import Layout from '../../components/Layout';
@@ -8,11 +8,14 @@ import Button from '../../components/Buttom';
 import { BsCart3 } from 'react-icons/bs';
 import { useBuyCart } from '../../hooks/useBuyCart';
 import { IProduct } from '../../contexts/BuyCartContext';
+import { useForm } from 'react-hook-form';
 
 export default function FormProduts() {
     const { id } = useParams();
     const { addProdutCart } = useBuyCart();
     const [productRequest, setProductRequest] = useState<IProduct>();
+
+    const { reset } = useForm<IProduct>();
 
     useEffect(() => {
         api.get<IProduct>(`/products/${id}`)
@@ -28,7 +31,9 @@ export default function FormProduts() {
                     avaliation: response.data.avaliation,
                     picture: response.data.picture,
                 });
-                console.log(productRequest);
+                reset({
+                    ...response.data,
+                });
             })
             .catch((e) => {
                 console.log(e);
@@ -74,7 +79,7 @@ export default function FormProduts() {
                             <Button
                                 pattern="secondary"
                                 onClick={() => {
-                                    // addProdutCart(productRequest);
+                                    addProdutCart(productRequest as IProduct);
                                 }}
                                 addClassName="text-white space-x-3 hover:bg-orange-800"
                             >

@@ -38,8 +38,9 @@ export function BuyCartProvider({ children }: IBuyCartProvider) {
             .then(() => {
                 setQuantity(quantity + 1);
                 setProductAdded(product);
-                // setTotalValue(totalValue + product.product?.price);
-                // console.log(productAdded);
+                setTotalValue(totalValue + product.price);
+
+                console.log(productAdded);
             })
             .catch((e) => console.log(e));
     };
@@ -51,7 +52,7 @@ export function BuyCartProvider({ children }: IBuyCartProvider) {
     return (
         <BuyCartContext.Provider
             value={{
-                // valueTotal,
+                valueTotal: 0,
                 addProdutCart,
                 removeProductCart,
                 quantityProductAdded: quantity,
