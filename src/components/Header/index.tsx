@@ -3,9 +3,6 @@ import { HiMenu } from 'react-icons/hi';
 import { BiUser } from 'react-icons/bi';
 import { useAuth } from '../../hooks/useAuth';
 import { useBuyCart } from '../../hooks/useBuyCart';
-import { useEffect, useState } from 'react';
-import { IProduct } from '../../contexts/BuyCartContext';
-import { api } from '../../services/api';
 
 interface IHeaderProps {
     openMenu: () => void;

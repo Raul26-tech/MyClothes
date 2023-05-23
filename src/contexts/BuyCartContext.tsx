@@ -33,16 +33,15 @@ export function BuyCartProvider({ children }: IBuyCartProvider) {
     const [productAdded, setProductAdded] = useState<IProduct>();
 
     const addProdutCart = async (product: IProduct) => {
-        await api
-            .post('/cart', product)
-            .then(() => {
-                setQuantity(quantity + 1);
-                setProductAdded(product);
-                setTotalValue(totalValue + product.price);
-
-                console.log(productAdded);
-            })
-            .catch((e) => console.log(e));
+        try {
+            await api.post('/cart', product);
+            setQuantity(quantity + 1);
+            setProductAdded(product);
+            setTotalValue(totalValue + product.price);
+            console.log(productAdded);
+        } catch (error) {
+            console.log(JSON.stringify(error, null, 2));
+        }
     };
 
     const removeProductCart = () => {
